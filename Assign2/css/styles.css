@@ -1,0 +1,142 @@
+/* CSS Classes */
+.mainBody
+{
+	background-color:#3399FF;
+}
+.aboutUsLogo
+{
+	font-family:Modeno;
+	font-size:30px;
+}
+.logoText
+{
+	font-family:Modeno;
+	float:left;
+	margin-top:25px;
+	margin-right:15px;
+	font-size:35px;
+}
+.formFormat
+{
+	display: inline-block;
+    text-align: center;
+	width:100%;
+	margin: 0px auto;
+}
+.signInFormDiv
+{
+	margin: 100px auto 0px auto;
+	background-color:#e7e7e7;
+	width:60%;
+	padding:10px;
+	border-radius: 25px;
+}
+.imageLoad
+{
+	opacity:0.0;
+	width:100%;
+	height:300px;
+	margin-top:100px;
+	
+}
+.userLoginImage
+{
+	margin-top:-10px;
+}
+.userLoginImage :hover{opacity: 0.3;}
+.socialMediaIcons
+{
+	margin-top:20px;
+}
+.socialMediaIcons:hover{opacity: 0.3;}
+
+.navbarlinks
+{
+	margin-top:25px;
+}
+.navSeparater
+{
+	border-right: solid black 2px;
+}
+.navUserSeparater
+{
+	border-right: solid black 2px;
+	border-left: solid black 2px;
+}
+
+/* CSS Tricks */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+	.imageLoad
+	{
+		opacity:0.0;
+		width:100%;
+		/* heig ht:300px;*/
+		margin-top:100px;
+		
+		
+	}
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+	.imageLoad
+	{
+		opacity:0.0;
+		width:100%;
+		/*heigh t:300px; */
+		margin-top:100px;
+		
+	}
+}
+
+/* Custom Fonts */
+@font-face {
+    font-family: Modeno;
+    src: url(fonts/Modeno_Font.ttf);
+	
+}
+
+/* MICRO CLASSES */
+.tclb{color:#3399FF;}
+.tclg{color:#8ECC8E;}
+.bl{border-left: solid black 1px;}
+.br{border-right: solid black 1px; padding-right:2px; margin-right:2px;}
+
+a:hover {
+  color:black;
+  
+}
+
+#mainFooter {
+background-color:#e7e7e7;
+/*+font-family: 'Garamond';
++font-size: 50px;
++font-weight: bold;*/
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+color:#3399FF;
+text-align: center;
+width:100%;
+height:auto;
+overflow:auto;
+}
+
+#mainFooter > a{
+color:#3399FF;
+}
+
+#mainFooter > a:hover{
+color: #8ECC8E;
+}
+
+#map-canvas {
+        width: 400px;
+        height: 300px;
+		border:solid black 1px;
+      }

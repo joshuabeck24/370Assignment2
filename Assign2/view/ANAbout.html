@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset ="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../js/bootstrap.js"></script>
+		<!-- Link to our own JavaScript file-->
+		<script src="../js/script.js"></script>
+		<script src="../js/jquery-2.1.1.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<title>AudioNexus - About</title>
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
+		<link href="../css/styles.css" rel="stylesheet"/>
+		<link href="../css/bootstrap.css" rel="stylesheet"/>
+		<script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(39.7643389, -104.8551114),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+	</head>
+	
+	<body class="mainBody">
+		<header id="mainHeader">
+		</header>
+		<img alt="Image of a Mixer" src="../images/location.png" class="imageLoad" />
+		
+		
+		<section style="margin-top:-80px;">
+			<div class="container">
+				<div style="overflow:auto" class="jumbotron">
+					<h2>ABOUT US</h2>
+					 <div class="col-lg-6"><!--LEFT-->
+						<h4>WE ARE <span class="tclb aboutUsLogo">Audio</span><span class="tclg aboutUsLogo">Nexus</span></h4><br/>
+						A small firm located in Denver, Colorado. We love music and want to see musicians across the world connect with each other!<br/><br/> 
+						
+						Web Developers<br/> 
+						<a  href="mailto:michele.a.gregory@gmail.com">Tony Gregory</a><br/>
+						<a  href="mailto:joshbeck24@gmail.com">Joshua Beck</a>
+					 </div>
+					 <div class="col-lg-6"><!--RIGHT-->
+						 <div id="map-canvas"></div>
+					 </div>
+				</div>
+			</div>
+		</section>
+		<br>
+		
+		<footer id="mainFooter">
+		</footer>
+	</body>
+</html>
