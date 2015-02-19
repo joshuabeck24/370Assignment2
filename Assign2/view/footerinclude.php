@@ -10,6 +10,24 @@
 			             <li class="pull-left"><a href="https://instagram.com/accounts/login/"><img class="socialMediaIcons" src="../images/Iinstagram.png" alt="Instagram Icon" title="Go To Instagram"/></a></li>
 				         <li class="pull-left"><a href="https://www.youtube.com/"><img class="socialMediaIcons" src="../images/Iyoutube.png" alt="Youtube Icon" title="Go To Youtube"/></a></li>
 			          </ul>
+                            <br/>
+                            <?php
+                                    $array = array("ANAbout.php", "ANAdmin.php", "index.php", "ANIdeas.php","ANMusic.php","ANNewsletter.php","ANSignup.php","ANUnderconstruction.php","checksheet.php","navinclude.html","headerinclude.php","footerinclude.php");
+                                    # $filename = 'somefile.txt';
+                                    $filename="";
+                                    foreach ($array as $filenameMatch)
+                                    {
+                                         if ($filenameMatch === basename($_SERVER['PHP_SELF'])) 
+                                         {
+                                           $filename =$filenameMatch;
+                                           break;
+                                         }
+                                    }    
+                                    if (file_exists($filename)) 
+                                    {
+                                      echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+                                    }
+                            ?>
 </footer>
 	</body>
 </html>
