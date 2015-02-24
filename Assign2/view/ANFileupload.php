@@ -2,12 +2,11 @@
 	$title = "AudioNexus - File Upload";
 	include './headerinclude.php';
 ?>
-<!-- <img alt="Image of a Mixer" src="../images/mixer.png" class="imageLoad" /> -->
 
-
+<img alt="Image of a Mixer" src="../images/uploads.png" class="imageLoad" />
 <section>
-    <div style ="margin-top: 100px;"class="container">
-        <div class="jumbotron">
+    <div class="container">
+        <div style="margin-top:20px;" class="jumbotron">
             <h2>File Upload</h2>
             <div >
                 <form enctype="multipart/form-data" action="processFileUpload.php" method="post">
