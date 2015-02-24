@@ -6,7 +6,7 @@
 
 
 <section style="margin-top:-80px;">
-<div class="container">
+<div style ="margin-top: 80px;"class="container">
 <div class="jumbotron">
 <h2>Under Construction</h2>
 <p> This page isn't quite ready yet to be shown just yet.</p>

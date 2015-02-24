@@ -11,7 +11,7 @@
                   Username: <input type="text" name="un"><br><br>
                   Password: <input type="text" name="pw"><br><br>
                 </form>
-        <p style="text-align:center"><a class="btn btn-success" href="../view/ANUnderconstruction.html" role="button">Sign In</a></p>
+        <p style="text-align:center"><a class="btn btn-success" href="../view/ANUnderconstruction.php" role="button">Sign In</a></p>
         </div>
 </div>
 </section>
