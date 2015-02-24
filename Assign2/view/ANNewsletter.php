@@ -5,7 +5,7 @@
 <br>				
 <section>
 <div class="container">
-<div class="jumbotron">
+<div style="margin-top: 100px;" class="jumbotron">
 <h3>Subscribe To our newsletter</h3>
 <p>Subscribe to our newsletter to see the latest news in upcoming musicians, lessons, and
 other exciting news about Audio-Nexus. </p>
