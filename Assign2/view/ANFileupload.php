@@ -9,11 +9,13 @@
     <div style ="margin-top: 100px;"class="container">
         <div class="jumbotron">
             <h2>File Upload</h2>
-            <div style ="text-align: center;">
-                <form  enctype="multipart/form-data" action="processFileUpload.php" method="post">
-                    <h4> Send this file: </h4>
-                    <input class="center-block" name="userfile" type="file" /> <br/>
-                    <input  class="btn btn-success" type="submit" value="Send File" /> <br/>
+            <div >
+                <form enctype="multipart/form-data" action="processFileUpload.php" method="post">
+                    <div style="padding-left:30%;" class=" pull-left divInJumbo">Newsletter(.html)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
+                    <input style="clear:both;" class="btn btn-success" type="submit" value="Send Newsletter" /> <br/>
+                    <hr/>
+                    <div style="padding-left:22%;" class=" pull-left divInJumbo">Home Page Images(.png)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
+                    <input style="clear:both;" class="btn btn-success" type="submit" value="Send Image" /> <br/>
                </form>
             </div>
         </div>

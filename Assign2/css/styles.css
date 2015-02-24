@@ -43,6 +43,13 @@
 {
 	margin-top:-10px;
 }
+.divInJumbo
+{
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+    text-align: center;
+}
 .userLoginImage :hover{opacity: 0.3;}
 .socialMediaIcons
 {
