@@ -5,7 +5,7 @@
 
 <img alt="Image of a Mixer" src="../images/location.png" class="imageLoad" />		
 <section style="margin-top:-80px;">
-        <div class="container">
+        <div style="margin-top:80px;" class="container">
                 <div style="overflow:auto" class="jumbotron">
                         <h2>ABOUT US</h2>
                          <div class="col-lg-6"><!--LEFT-->
