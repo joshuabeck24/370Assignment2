@@ -3,7 +3,7 @@
 <a class="br" href="mailto:michele.a.gregory@gmail.com">Comments</a>
 <a class="br" href="ANAbout.php">About</a>
 					<a style="text-decoration:none">Copyright &copy; 2015</a>
-		            <a href="ANNewsletter.php" style="text-decoration:none"> <img title="Join Our Newsletter!" class="socialMediaIcons" src="../images/mail.png" width="50" height="50" float="right" /> </a>
+		            <a href="ANNewsletter.php" style="text-decoration:none"> <img title="Join Our Newsletter!" class="socialMediaIcons" alt="Newsletter Icon" src="../images/mail.png" width="50" height="50"  /> </a>
 					<ul class="pull-right" style="list-style-type: none;">
 				         <li class="pull-left"><a href="https://www.facebook.com/"><img class="socialMediaIcons" src="../images/Ifacebook.png" alt="Facebook Icon" title="Go To Facebook" /></a></li>
 				         <li class="pull-left"><a href="https://twitter.com/"><img class="socialMediaIcons" src="../images/Itwitter.png" alt="Twitter Icon" title="Go To Twitter" /></a></li>
@@ -14,7 +14,7 @@
 </footer>
 <div style="text-align: center; color:black;">
   <?php
-        $array = array("ANFileupload.php","ANAbout.php", "ANAdmin.php", "index.php", "ANIdeas.php","ANMusic.php","ANNewsletter.php","ANSignup.php","ANUnderconstruction.php","checksheet.php","navinclude.html","headerinclude.php","footerinclude.php");
+        $array = array("ANFileupload.php","ANAbout.php", "ANAdmin.php", "index.php", "ANIdeas.php","ANMusic.php","ANNewsletter.php","ANSignup.php","ANUnderconstruction.php","checksheet.php","navinclude.html","headerinclude.php","footerinclude.php","processFileUpload.php");
         # $filename = 'somefile.txt';
         $filename="";
         foreach ($array as $filenameMatch)

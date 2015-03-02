@@ -35,7 +35,7 @@
 	       </style>
 	</head>
 	
-	<body cz-shortcut-listen="true" class="mainBody">
+        <body class="mainBody"> <!-- cz-shortcut-listen="true" --> >
 		<header id="mainHeader">
                     <?php
                         include './navinclude.html';

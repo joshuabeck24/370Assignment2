@@ -2,7 +2,7 @@
 	$title = "AudioNexus - File Upload";
 	include './headerinclude.php';
 ?>
-<img alt="Image of a Mixer" src="../images/uploads.png" class="imageLoad" />
+<img alt="One Way Upload" src="../images/uploads.png" class="imageLoad" />
 <section>
     <div class="container">
         <div style="margin-top:20px;" class="jumbotron">
@@ -11,10 +11,33 @@
                <?php
                     /* This puts uploaded file into correct directory with its own name */
                     #$uploadedFile = '../DataFiles/' . $_FILES['userfile']['name'];
-                    if($_FILES['userfile']['type']=="text/html")
+
+                    if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
+                    {
+                        echo "<p>Please choose a file first and then try again...</p>";
+                    }
+                    else if($_FILES['userfile']['type']=="text/html")
                     {
                         echo 'This is a HTML File' ;
-                    }else {echo 'Sorry This is not html';}
+                        processNewsletter();
+                    }
+                    else if(($_FILES['userfile']['type']=="image/gif") OR ($_FILES['userfile']['type']=="image/jpeg") OR ($_FILES['userfile']['type']=="image/png")  )
+                    {
+                        echo 'This is a Image File' ;
+                        processImages();
+                    }
+                    else 
+                    {
+                        echo '<p>Sorry Wrong File format</p>';
+                    }
+                    function processNewsletter()
+                    {
+                        
+                    }
+                    function processImages()
+                    {
+                        
+                    }
                     /*
                     if (file_exists($uploadedfile)) 
                     {
