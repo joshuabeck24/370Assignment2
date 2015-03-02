@@ -11,19 +11,19 @@
                <?php
                     /* This puts uploaded file into correct directory with its own name */
                     #$uploadedFile = '../DataFiles/' . $_FILES['userfile']['name'];
-
+                    
                     if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
                     {
                         echo "<p>Please choose a file first and then try again...</p>";
                     }
                     else if($_FILES['userfile']['type']=="text/html")
                     {
-                        echo 'This is a HTML File' ;
+                        /* echo 'This is a HTML File' ;*/
                         processNewsletter();
                     }
                     else if(($_FILES['userfile']['type']=="image/gif") OR ($_FILES['userfile']['type']=="image/jpeg") OR ($_FILES['userfile']['type']=="image/png")  )
                     {
-                        echo 'This is a Image File' ;
+                        /*echo 'This is a Image File' ;*/
                         processImages();
                     }
                     else 
@@ -32,10 +32,27 @@
                     }
                     function processNewsletter()
                     {
-                        
+                        $newsletterDir = "../Newsletters/";
+                        $uploadedFile = $newsletterDir . $_FILES['userfile']['name'];
+                        move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
+                        echo'<p>Newsletter Succesfully Uploaded</p>';
                     }
                     function processImages()
                     {
+                        $imagesDir = "../HomepageImages/";
+                        $uploadedFile = $imagesDir . $_FILES['userfile']['name'];
+                        $image_info = getimagesize($_FILES['userfile']['tmp_name']);
+                        $image_width = $image_info[0];                                       
+                        $image_height = $image_info[1]; 
+                        if($image_width <1297)
+                        {
+                            echo"<p>Sorry, that image is not wide enough(must be larger than 1297px widht)</p>";
+                        }
+                        else
+                        {
+                            move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
+                            echo'<p>Image Succesfully Uploaded</p>';
+                        }
                         
                     }
                     /*

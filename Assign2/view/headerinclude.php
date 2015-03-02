@@ -24,8 +24,8 @@
                         center: new google.maps.LatLng(39.7643389, -104.8551114),
                         zoom: 8,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
-                      }
-                      var map = new google.maps.Map(mapCanvas, mapOptions)
+                      };
+                      var map = new google.maps.Map(mapCanvas, mapOptions);
                     }
                     google.maps.event.addDomListener(window, 'load', initialize);
                </script>
@@ -35,7 +35,7 @@
 	       </style>
 	</head>
 	
-        <body class="mainBody"> <!-- cz-shortcut-listen="true" --> >
+        <body class="mainBody"> <!-- cz-shortcut-listen="true" --> 
 		<header id="mainHeader">
                     <?php
                         include './navinclude.html';
