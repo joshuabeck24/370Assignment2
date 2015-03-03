@@ -9,11 +9,11 @@
         while(false !== ($file = readdir($dir))){
                 //strip out the two entries of . and ..
                 if($file != "." && $file != ".."){
-                        $logoArray[] = $file;
+                        $imageArray[] = $file;
                 }
         }
         closedir($dir);
-        $headerImage = "../HomepageImages/" . $logoArray[array_rand($logoArray)];
+        $headerImage = "../HomepageImages/" . $logoArray[array_rand($imageArray)];
 ?>
 <div id="headmiddle">
     <img class="imageLoad" src= "<?php echo $headerImage; ?>" alt= "HeaderImage" title="" id="fadeIn"  />
