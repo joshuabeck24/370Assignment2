@@ -62,7 +62,7 @@
                     function processQuote()
                     {
                         $quoteDir = "../Quote/";
-                        $uploadedFile = $quoteDir . $_FILES['userfile']['name'];
+                        $uploadedFile = $quoteDir . "quotes.txt";
                         move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
                         echo'<p>Quote File Succesfully Uploaded</p>';
                     }

@@ -3,6 +3,20 @@
 	include './headerinclude.php';
 ?>
 
+<!-- This code block reads from text file(if it is there) and loads its contents into title of link -->
+<?php
+        $filePath = "../Quote/quotes.txt";
+        if(file_exists($filePath))
+        {
+            $message = "the file exists";
+            $quoteFile = file_get_contents($filePath);
+        }
+        else 
+        {
+            $quoteFile = "file does not exist";
+        }
+        //$quoteFile = file_get_contents('http://www.example.com/');
+?>
 <img alt="One Way Upload" src="../images/uploads.png" class="imageLoad" />
 <section>
     <div class="container">
@@ -32,6 +46,8 @@
                     <div style="padding-left:31%;" class=" pull-left divInJumbo">Quote File(.txt)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Quote File" /> <br/>
                </form>
+               <br/>
+               <a class="center-block" title="<?php echo $quoteFile; ?>">View Current Quote File(mouse over)</a>
             </div>
         </div>
     </div>
