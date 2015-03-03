@@ -2,7 +2,7 @@
     {
 	//getHeader();
 	//getFooter();
-	getPicture();
+	//getPicture();
 	
 	$(".imageLoad").each(function() {
         this.onload = function() {
