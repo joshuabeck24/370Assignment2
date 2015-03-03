@@ -17,6 +17,18 @@
         }
         //$quoteFile = file_get_contents('http://www.example.com/');
 ?>
+<!-- This code block is for displaying files in images directory(other files only have 1 currently there) -->
+<?php
+        $current_dir = '../HomepageImages';
+        $dir = opendir($current_dir);
+        while(false !== ($file = readdir($dir))){
+                //strip out the two entries of . and ..
+                if($file != "." && $file != ".."){
+                        $imageArray[] = $file;
+                }
+        }
+        closedir($dir);
+?>
 <img alt="One Way Upload" src="../images/uploads.png" class="imageLoad" />
 <section>
     <div class="container">
@@ -39,6 +51,15 @@
                     <div style="padding-left:19%;" class=" pull-left divInJumbo">Home Page Images(.jpg, .png, .gif)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Image" /> <br/>
                </form>
+               <div style="text-align: center;">
+               <h4>Current Files in Image Directory</h4>
+               <?php 
+                    foreach ($imageArray as $image) 
+                    {
+                       print($image . "<br>");
+                    }
+               ?>
+               </div>
                <hr/>
                <form style=" margin: 0;
                               text-align: center;"
