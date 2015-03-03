@@ -5,28 +5,35 @@
 
 <!-- This code block reads from text file(if it is there) and loads its contents into title of link -->
 <?php
+        //Grab the file path
         $filePath = "../Quote/quotes.txt";
+        //Check to see if there is a file there
         if(file_exists($filePath))
         {
-            $message = "the file exists";
+            //if it does exist, load the contednts of it into variable to be added to title attribute in link
             $quoteFile = file_get_contents($filePath);
         }
+        //If the file does not exist let user know
         else 
         {
             $quoteFile = "file does not exist";
         }
-        //$quoteFile = file_get_contents('http://www.example.com/');
 ?>
+
 <!-- This code block is for displaying files in images directory(other files only have 1 currently there) -->
 <?php
+        //Get the directory of the images
         $current_dir = '../HomepageImages';
+        //Open it
         $dir = opendir($current_dir);
+        //Read all files there and add them to an array
         while(false !== ($file = readdir($dir))){
                 //strip out the two entries of . and ..
                 if($file != "." && $file != ".."){
-                        $imageArray[] = $file;
+                        $imageArray[] = $file;//will be using this to print the directory
                 }
         }
+        //When done close the directory
         closedir($dir);
 ?>
 <img alt="One Way Upload" src="../images/uploads.png" class="imageLoad" />
@@ -53,6 +60,7 @@
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Quote File" /> <br/>
                </form>
                <br/>
+               <!-- This is where the quote file is added to the title attribute for the "Quick View" -->
                <div style="text-align: center;">
                     <a href="../Quote/quotes.txt" class="center-block" title="<?php echo $quoteFile; ?>">View Quote File(Mouse Over For Quick view)</a>
                </div>
@@ -66,6 +74,7 @@
                <div style="text-align: center;">
                     <h4>Current Files in Image Directory</h4>
                     <?php 
+                         //For every file in the directory, print its name so user knows what is there
                          foreach ($imageArray as $image) 
                          {
                             print($image . "<br>");
