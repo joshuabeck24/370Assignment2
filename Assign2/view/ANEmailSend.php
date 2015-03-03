@@ -22,9 +22,11 @@ $headers['Subject'] = 'Audio-Nexus Newsletter ';
 $headers['Content-type'] = 'text/html';
 
 // $recipients is an array of addresses,$message is the html
-$message = "<html><head></head><body><h1>AudioNexus Monthly Artist: <a href='https://soundcloud.com/leaving-community/mistakes'> Leaving Community</a></h1>"
+$newsfile = fopen('../Newsletters/ANNews.html', 'r');
+$newsletter = file_get_contents('../Newsletters/ANNews.html');
+/*$message = "<html><head></head><body><h1>AudioNexus Monthly Artist: <a href='https://soundcloud.com/leaving-community/mistakes'> Leaving Community</a></h1>"
 . " <br /><p>AudioNexus is looking for new and inspiring artists around the world. Check out the song 'Mistakes' by"
-. "Leaving Community, a one-man band in California!</p></body></html>";
+. "Leaving Community, a one-man band in California!</p></body></html>"; */
 $recipients = array('michele.a.gregory@gmail.com');
 
 echo "<h3>Sending Email To:</h3><ol>";
@@ -36,7 +38,7 @@ echo "<h3>Sending Email To:</h3><ol>";
 echo "</ol>";
 fclose($file);	
 
-$result = $mailer->send($recipients, $headers, $message);
+$result = $mailer->send($recipients, $headers, $newsletter);
 
 if (PEAR::isError($result)) {
         echo 'Error sending email.';
