@@ -40,27 +40,12 @@
                       enctype="multipart/form-data" action="processFileUpload.php" method="post">
                     <div style="padding-left:30%;" class=" pull-left divInJumbo">Newsletter(.html)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Newsletter" /> <br/>
-                    
-                    <!-- <div style="padding-left:22%;" class=" pull-left divInJumbo">Home Page Images(.png)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
-                    <input style="clear:both;" class="btn btn-success" type="submit" value="Send Image" /> <br/>-->
                </form>
-               <hr/>
-               <form style=" margin: 0;
-                              text-align: center;"
-                      enctype="multipart/form-data" action="processFileUpload.php" method="post">
-                    <div style="padding-left:19%;" class=" pull-left divInJumbo">Home Page Images(.jpg, .png, .gif)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
-                    <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Image" /> <br/>
-               </form>
+               <br/>
                <div style="text-align: center;">
-               <h4>Current Files in Image Directory</h4>
-               <?php 
-                    foreach ($imageArray as $image) 
-                    {
-                       print($image . "<br>");
-                    }
-               ?>
+                   <a href="../Newsletters/ANNews.html" class="center-block" title="">View Current Newsletter</a>
                </div>
-               <hr/>
+               <hr style="border-color: black;"/>
                <form style=" margin: 0;
                               text-align: center;"
                       enctype="multipart/form-data" action="processFileUpload.php" method="post">
@@ -68,7 +53,25 @@
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Quote File" /> <br/>
                </form>
                <br/>
-               <a class="center-block" title="<?php echo $quoteFile; ?>">View Current Quote File(mouse over)</a>
+               <div style="text-align: center;">
+                    <a href="../Quote/quotes.txt" class="center-block" title="<?php echo $quoteFile; ?>">View Quote File(Mouse Over For Quick view)</a>
+               </div>
+               <hr style="border-color: black;"/>
+               <form style=" margin: 0;
+                              text-align: center;"
+                      enctype="multipart/form-data" action="processFileUpload.php" method="post">
+                    <div style="padding-left:19%;" class=" pull-left divInJumbo">Home Page Images(.jpg, .png, .gif)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
+                    <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Image" /> <br/>
+               </form>
+               <div style="text-align: center;">
+                    <h4>Current Files in Image Directory</h4>
+                    <?php 
+                         foreach ($imageArray as $image) 
+                         {
+                            print($image . "<br>");
+                         }
+                    ?>
+               </div>
             </div>
         </div>
     </div>

@@ -37,7 +37,7 @@
                     function processNewsletter()
                     {
                         $newsletterDir = "../Newsletters/";
-                        $uploadedFile = $newsletterDir . $_FILES['userfile']['name'];
+                        $uploadedFile = $newsletterDir . "ANNews.html";
                         move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
                         echo'<p>Newsletter Succesfully Uploaded</p>';
                     }
