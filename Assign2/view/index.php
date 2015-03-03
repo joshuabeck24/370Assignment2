@@ -2,7 +2,21 @@
 	$title = "AudioNexus - Your Portal To Musicians Everywhere";
 	include './headerinclude.php';
 ?>
-<div id="headmiddle">   
+
+<?php
+        $current_dir = '../HomepageImages';
+        $dir = opendir($current_dir);
+        while(false !== ($file = readdir($dir))){
+                //strip out the two entries of . and ..
+                if($file != "." && $file != ".."){
+                        $logoArray[] = $file;
+                }
+        }
+        closedir($dir);
+        $headerImage = "../HomepageImages/" . $logoArray[array_rand($logoArray)];
+?>
+<div id="headmiddle">
+    <img class="imageLoad" src= "<?php echo $headerImage; ?>" alt= "HeaderImage" title="" id="fadeIn"  />
 </div>
 <div class="container">
     <div style="margin-top:20px;" class="jumbotron">
