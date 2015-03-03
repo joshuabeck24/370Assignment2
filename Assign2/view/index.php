@@ -13,7 +13,7 @@
                 }
         }
         closedir($dir);
-        $headerImage = "../HomepageImages/" . $logoArray[array_rand($imageArray)];
+        $headerImage = "../HomepageImages/" . $imageArray[array_rand($imageArray)];
 ?>
 <div id="headmiddle">
     <img class="imageLoad" src= "<?php echo $headerImage; ?>" alt= "HeaderImage" title="" id="fadeIn"  />
