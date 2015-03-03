@@ -63,7 +63,7 @@
                         //Check the width(matters more than height) if its wrong notify user
                         if($image_width <1297)
                         {
-                            echo"<p>Sorry, that image is not wide enough(must be larger than 1297px widht)</p>";
+                            echo"<p>Sorry, that image is not wide enough(must be larger than 1297px width)</p>";
                         }
                         //else move the file into the directory and notify user of success
                         else
