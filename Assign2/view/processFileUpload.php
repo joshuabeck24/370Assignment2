@@ -26,6 +26,10 @@
                         /*echo 'This is a Image File' ;*/
                         processImages();
                     }
+                    else if ($_FILES['userfile']['type']=="text/plain")
+                    {
+                        processQuote();
+                    }
                     else 
                     {
                         echo '<p>Sorry Wrong File format</p>';
@@ -54,6 +58,13 @@
                             echo'<p>Image Succesfully Uploaded</p>';
                         }
                         
+                    }
+                    function processQuote()
+                    {
+                        $quoteDir = "../Quote/";
+                        $uploadedFile = $quoteDir . "quotes.txt";
+                        move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
+                        echo'<p>Quote File Succesfully Uploaded</p>';
                     }
                     /*
                     if (file_exists($uploadedfile)) 
