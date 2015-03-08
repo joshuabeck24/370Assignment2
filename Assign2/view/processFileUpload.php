@@ -70,6 +70,27 @@
                         {
                             move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
                             echo'<p>Image Succesfully Uploaded</p>';
+                            
+                            //Get the directory of the images
+                            $current_dir = '../HomepageImages';
+                            //Open it
+                            $dir = opendir($current_dir);
+                            //Read all files there and add them to an array
+                            while(false !== ($file = readdir($dir))){
+                                    //strip out the two entries of . and ..
+                                    if($file != "." && $file != ".."){
+                                            $imageArray[] = $file;//will be using this to print the directory
+                                    }
+                            }
+                            //When done close the directory
+                            closedir($dir);
+                            echo '<div style="text-align:center"> <p>Current File Listing</p> ';
+                            //For every file in the directory, print its name so user knows what is there
+                            foreach ($imageArray as $image) 
+                            {
+                               print($image . "<br>");
+                            }
+                            echo '</div>';//Close the div from the first echo containg "Current File Listing"
                         }
                         
                     }

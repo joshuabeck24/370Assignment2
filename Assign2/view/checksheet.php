@@ -19,7 +19,7 @@
 			<tr><td class="indent1">a.	Upload page provides a list of all current files in the directory.</td><td> For images, newsletters and quotes link to only 1 file&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">b.  Proper permissions are set on server folders to allow uploads.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr><td class="indent1">c.	Newsletter-Type File Upload Mechanism</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
-			<tr><td class="indent2">i.	HTML self-contained file with fonts and colors.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td class="indent2">i.	HTML self-contained file with fonts and colors.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent2">ii.	File can be seen via link on home page showing most recently uploaded version.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent2">iii.  Upload gives error if not an HTML file.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">d.	Quote File Upload Mechanism</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
@@ -29,17 +29,17 @@
 			<tr><td class="indent1">e.	Image File Uploads</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent2">i.	Allow additional image files to upload.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent2">ii.	Only allow jpeg, gif, and png formats.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
-			<tr><td class="indent2">iii. On successful upload list all files.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td class="indent2">iii. On successful upload list all files.</td><td>Shown on file management also page&nbsp;</td><td> YES &nbsp;</td></tr>
 			<tr><td class="indent2">iv.	New images may appear on home page.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent2">v.	Validate and notify if image size matters.</td><td>&nbsp;</td><td>YES&nbsp;</td></tr>
 			<tr><td>6.	Sending of Bulk E-Mails</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">a.	Newsletter-Type file is body of the message.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">b.	E-Mail is sent to all recipients that have signed up.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
-			<tr><td class="indent1">c.	No recipient should be able to see the email address of others.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td class="indent1">c.	No recipient should be able to see the email address of others.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">d.	Confirmation page shows all addresses who received a message.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">e.	E-Mail is properly addressed to help avoid going to SPAM folders.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td>7.	This sheet linked in to your site under the Help menu.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
-			<tr><td>8.	All pages pass the validation/conformance checks for the specified version of HTML and CSS</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>8.	All pages pass the validation/conformance checks for the specified version of HTML and CSS</td><td>Bootstrap has its issues but our styles.css is fine &nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td>9.	Complete site published to cisprod public_html folder (including redirection).</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr><td class="indent1">a.	Create a .zip file of your whole site and turn it in to the appropriate folder on D2L.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr><td></td><td>&nbsp;</td><td>&nbsp;</td></tr>
