@@ -10,14 +10,14 @@
 			<tr><td class="indent1">a.	Footer includes date/time main content portion of page last modified.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">b.	Footer includes mini-nav with contact and About links.</td><td>&nbsp;</td><td>YES&nbsp;</td></tr>
 			<tr><td>2.	All source files organized into proper folders.</td><td>&nbsp;</td><td> YES &nbsp;</td></tr>
-			<tr><td>3.	Automatic redirection from top of your web space to proper location for this assignment.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>3.	Automatic redirection from top of your web space to proper location for this assignment.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td>4.	Email sign-up link in main navigation or on Home page.</td><td> Newsletter Image link in footer&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">a.	Validate e-mail before saving on client and server.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">b.	New addresses successfully added.</td><td>&nbsp;</td><td> YES &nbsp;</td></tr>
 			<tr><td class="indent1">c.	Success or error page responds when appropriate.</td><td> &nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td>5.	File Management link in Admin menu.</td><td>&nbsp;</td><td> YES &nbsp;</td></tr>
 			<tr><td class="indent1">a.	Upload page provides a list of all current files in the directory.</td><td> For images, newsletters and quotes link to only 1 file&nbsp;</td><td>YES &nbsp;</td></tr>
-			<tr><td class="indent1">b.  Proper permissions are set on server folders to allow uploads.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td class="indent1">b.  Proper permissions are set on server folders to allow uploads.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent1">c.	Newsletter-Type File Upload Mechanism</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent2">i.	HTML self-contained file with fonts and colors.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td class="indent2">ii.	File can be seen via link on home page showing most recently uploaded version.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
@@ -40,8 +40,8 @@
 			<tr><td class="indent1">e.	E-Mail is properly addressed to help avoid going to SPAM folders.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td>7.	This sheet linked in to your site under the Help menu.</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
 			<tr><td>8.	All pages pass the validation/conformance checks for the specified version of HTML and CSS</td><td>Bootstrap has its issues but our styles.css is fine &nbsp;</td><td>YES &nbsp;</td></tr>
-			<tr><td>9.	Complete site published to cisprod public_html folder (including redirection).</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr><td class="indent1">a.	Create a .zip file of your whole site and turn it in to the appropriate folder on D2L.</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>9.	Complete site published to cisprod public_html folder (including redirection).</td><td>&nbsp;</td><td>YES &nbsp;</td></tr>
+			<tr><td class="indent1">a.	Create a .zip file of your whole site and turn it in to the appropriate folder on D2L.</td><td>&nbsp;</td><td>YES&nbsp;</td></tr>
 			<tr><td></td><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr><th colspan="2">Extra Credit</th></tr>
 			<tr><td></td><td>&nbsp;</td><td>&nbsp;</td></tr>
