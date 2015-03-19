@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - File Upload";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 
 <!-- This code block reads from text file(if it is there) and loads its contents into title of link -->
@@ -88,5 +88,5 @@
 <br>
 
  <?php
-include './footerinclude.php';
+include '../view/footerinclude.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - Admin Login";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <br>
 		
@@ -19,6 +19,6 @@
 
 <br>
 <?php
-	include './footerinclude.php';
+	include '../view/footerinclude.php';
 ?>
 

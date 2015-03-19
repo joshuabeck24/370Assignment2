@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - Under Construction";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <img alt="Image of a Mixer" src="../images/mixer.png" class="imageLoad" />
 
@@ -16,7 +16,7 @@
 <br>
 
  <?php
-include './footerinclude.php';
+include '../view/footerinclude.php';
 ?>
 
 

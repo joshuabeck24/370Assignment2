@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - Newsletter";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <br>				
 <section>
@@ -36,7 +36,7 @@
 </section>
 <br>
  <?php
-include './footerinclude.php';
+include '../view/footerinclude.php';
 ?>
 
 

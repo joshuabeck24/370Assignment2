@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - Your Portal To Musicians Everywhere";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 
 <?php
@@ -34,6 +34,6 @@
 </div>
 <br />
 <?php
-	include './footerinclude.php';
+	include '../view/footerinclude.php';
 ?>
 

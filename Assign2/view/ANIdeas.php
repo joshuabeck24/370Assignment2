@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - Ideas";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <img alt="Picture of lightbulb head man" src="../images/ideas.png" class="imageLoad" />	
 <section style="margin-top:-80px;">
@@ -17,5 +17,5 @@
 </section>
 <br>
 <?php
-	include './footerinclude.php';
+	include '../view/footerinclude.php';
 ?>

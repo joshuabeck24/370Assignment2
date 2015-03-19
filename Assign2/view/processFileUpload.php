@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - File Upload";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <img alt="One Way Upload" src="../images/uploads.png" class="imageLoad" />
 <section>
@@ -113,5 +113,5 @@
 </section>
 <br>
  <?php
-include './footerinclude.php';
+include '../view/footerinclude.php';
 ?>

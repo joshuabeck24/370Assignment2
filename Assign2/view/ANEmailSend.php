@@ -1,6 +1,6 @@
 <?php
 	$title = "Send Mail";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <br>				
 <section>
@@ -53,7 +53,7 @@ if (PEAR::isError($result)) {
 <br>
  <?php
 	
-	include './footerinclude.php';
+	include '../view/footerinclude.php';
 ?>
 
 

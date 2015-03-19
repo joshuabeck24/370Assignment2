@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - Assignment 1 Self-Check Grading Sheet";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <div style="margin-top:100px" id="wrapper">
 	
@@ -60,5 +60,5 @@ appropriate message indicating this.</td><td>&nbsp;</td><td>N/A &nbsp;</td></tr>
 
 	</div>
 <?php
-	include './footerinclude.php';
+	include '../view/footerinclude.php';
 ?>

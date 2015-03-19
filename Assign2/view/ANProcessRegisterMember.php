@@ -1,6 +1,6 @@
 <?php
 	$title = "Register Member";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <br>				
 <section>
@@ -48,7 +48,7 @@ if (empty($firstName)) {
 <br>
  <?php
 	
-	include './footerinclude.php';
+	include '../view/footerinclude.php';
 ?>
 
 

@@ -1,6 +1,6 @@
 <?php
 	$title = "AudioNexus - Sign Up";
-	include './headerinclude.php';
+	include '../view/headerinclude.php';
 ?>
 <br>		
 <section>
@@ -11,11 +11,14 @@
                   Username: <input type="text" name="un"><br><br>
                   Password: <input type="text" name="pw"><br><br>
                 </form>
-        <p style="text-align:center"><a class="btn btn-success" href="../view/ANUnderconstruction.php" role="button">Sign In</a></p>
+          <p style="text-align:center">
+               <a class="btn btn-success" href="../view/ANUnderconstruction.php" role="button">Sign In</a>
+               <a title="Not a Member?"class="btn btn-success" href="../view/ANUnderconstruction.php" role="button">Sign Up</a>
+          </p>
         </div>
 </div>
 </section>
 <br>
 <?php
-	include './footerinclude.php';
+	include '../view/footerinclude.php';
 ?>
