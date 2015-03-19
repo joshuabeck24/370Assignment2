@@ -28,8 +28,8 @@
 		<div class="row">
 			<hr>
                         <h3>February 2015</h3>
-			<p class="col-lg-12">Our site is now live! <a href="../view/ANUnderconstruction.html">Sign up today</a> to connect with other musicicans now,
-			and feel free to check out our <a href="../view/ANAbout.html">About</a> page to learn more about AudioNexus.</p>
+			<p class="col-lg-12">Our site is now live! <a href="../view/ANUnderconstruction.php">Sign up today</a> to connect with other musicicans now,
+			and feel free to check out our <a href="../view/ANAbout.php">About</a> page to learn more about AudioNexus.</p>
 		</div>	
 	</div>
 </div>
