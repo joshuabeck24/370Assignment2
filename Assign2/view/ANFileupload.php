@@ -67,7 +67,7 @@
                <hr style="border-color: black;"/>
                <form style=" margin: 0;
                               text-align: center;"
-                      enctype="multipart/form-data" action="processFileUpload.php" method="post">
+                      enctype="multipart/form-data" action="ProcessFileUpload" method="post">
                     <div style="padding-left:19%;" class=" pull-left divInJumbo">Home Page Images(.jpg, .png, .gif)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Image" /> <br/>
                </form>
