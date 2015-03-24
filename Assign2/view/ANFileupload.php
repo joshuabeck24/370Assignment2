@@ -44,7 +44,7 @@
             <div >
                <form style=" margin: 0;
                               text-align: center;"
-                      enctype="multipart/form-data" action="processFileUpload.php" method="post">
+                      enctype="multipart/form-data" action="controller.php?action=ProcessFileUpload" method="post">
                     <div style="padding-left:30%;" class=" pull-left divInJumbo">Newsletter(.html)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Newsletter" /> <br/>
                </form>
@@ -55,7 +55,7 @@
                <hr style="border-color: black;"/>
                <form style=" margin: 0;
                               text-align: center;"
-                      enctype="multipart/form-data" action="processFileUpload.php" method="post">
+                      enctype="multipart/form-data" action="controller.php?action=ProcessFileUpload" method="post">
                     <div style="padding-left:31%;" class=" pull-left divInJumbo">Quote File(.txt)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Quote File" /> <br/>
                </form>
@@ -67,7 +67,7 @@
                <hr style="border-color: black;"/>
                <form style=" margin: 0;
                               text-align: center;"
-                      enctype="multipart/form-data" action="ProcessFileUpload" method="post">
+                      enctype="multipart/form-data" action="controller.php?action=ProcessFileUpload" method="post">
                     <div style="padding-left:19%;" class=" pull-left divInJumbo">Home Page Images(.jpg, .png, .gif)</div><input class="pull-left center-block" name="userfile" type="file" /> <br/><br/>
                     <input style="clear:both;" class="btn btn-success" type="submit" value="Upload Image" /> <br/>
                </form>

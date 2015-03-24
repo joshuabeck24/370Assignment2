@@ -20,7 +20,7 @@
       case 'EmailSend':
           include '../view/ANEmailsend.php';
           break;
-      case 'FileUpload':
+      case 'FileManagement':
           include '../view/ANFileUpload.php';
           break;
       case 'Ideas':
@@ -35,8 +35,9 @@
       case 'ProcessRegisterMember':
           include '../view/ANProcessRegisterMember.php';
           break;
-      case 'Signin':
+      case 'SignIn':
           include '../view/ANSignup.php';
+		      break;
       case 'UnderConstruction':
           include '../view/ANUnderConstruction.php';
           break;
