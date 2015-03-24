@@ -10,7 +10,7 @@
 		<p>Subscribe to our newsletter to see the latest news in upcoming musicians, lessons, and
 		other exciting news about Audio-Nexus. </p>
 
-		<form action="ANProcessRegisterMember.php" method="post" class="row">
+		<form action="controller.php?action=ProcessRegisterMember" method="post" class="row">
 			<div class="col-lg-6">
 				<label>First Name:</label>
 				<input type="text" name="FirstName" required=""><br>
