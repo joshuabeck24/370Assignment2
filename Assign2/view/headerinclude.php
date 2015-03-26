@@ -17,6 +17,10 @@
 		<link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
 		<link href="../css/styles.css" rel="stylesheet"/>
 		<link href="../css/bootstrap.css" rel="stylesheet"/>
+		<!-- Star Rating Stuff -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<!-- -->
+
 		<script>
                     function initialize() {
                       var mapCanvas = document.getElementById('map-canvas');
