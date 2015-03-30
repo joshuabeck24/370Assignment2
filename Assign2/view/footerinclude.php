@@ -1,7 +1,7 @@
 <!-- </section> END OF SECTION IN HEADER INCLUDE -->
 <footer id="mainFooter">
 <a class="br" href="mailto:michele.a.gregory@gmail.com">Comments</a>
-<a class="br" href="ANAbout.php">About</a>
+<a class="br" href="../controller/controller.php?action=About">About</a>
 					<a style="text-decoration:none">Copyright &copy; 2015</a>
 		            <a href="../controller/controller.php?action=Newsletter" style="text-decoration:none"> <img title="Join Our Newsletter!" class="socialMediaIcons" alt="Newsletter Icon" src="../images/mail.png" width="50" height="50"  /> </a>
 					<ul class="pull-right" style="list-style-type: none;">

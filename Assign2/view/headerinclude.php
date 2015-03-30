@@ -17,10 +17,11 @@
 		<link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
 		<link href="../css/styles.css" rel="stylesheet"/>
 		<link href="../css/bootstrap.css" rel="stylesheet"/>
-		<!-- Star Rating Stuff -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link href="../css/star-rating.css" rel="stylesheet"/>
+		<!-- Star Rating Stuff 
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 		<!-- -->
-
+        <script src="../js/star-rating.js"></script>
 		<script>
                     function initialize() {
                       var mapCanvas = document.getElementById('map-canvas');

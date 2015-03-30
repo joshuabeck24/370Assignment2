@@ -143,7 +143,7 @@ and (min-width : 321px) {
 /* Custom Fonts */
 @font-face {
     font-family: Modeno;
-    src: url(fonts/Modeno_Font.ttf);
+    src: url(../fonts/Modeno_Font.ttf);
 	
 }
 
