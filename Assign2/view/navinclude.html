@@ -15,9 +15,16 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						  <ul class="nav navbar-nav navbar-right">
 							<li><a href="../controller/controller.php?action=Index">HOME</a></li> <!-- THIS CLASS ACTIVE NEEDS TO BE FIXED -->
-							<li><a href="../controller/controller.php?action=Music">MUSIC</a></li>
+							<!-- <li><a href="../controller/controller.php?action=Music">MUSIC</a></li> -->
+                            <li class="dropdown">
+								  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MUSIC<span class="caret"></span></a>
+								  <ul class="dropdown-menu" role="menu">
+									<li><a href="../controller/controller.php?action=Music">MUSIC(Hot)</a></li>
+									<li><a href="../controller/controller.php?action=ListAllMusic">All Music</a></li>
+								  </ul>
+							</li>
 							<!-- <li><a href="../view/ANAdmin.php">ADMIN</a></li> -->
-                                                        <li class="dropdown">
+                             <li class="dropdown">
 								  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ADMIN<span class="caret"></span></a>
 								  <ul class="dropdown-menu" role="menu">
 									<li><a href="../controller/controller.php?action=Admin">LOG IN</a></li>

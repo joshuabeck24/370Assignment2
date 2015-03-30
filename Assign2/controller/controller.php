@@ -28,6 +28,9 @@
       case 'Ideas':
           include '../view/ANIdeas.php';
           break;
+      case 'ListAllMusic':
+           listAllMusic();
+           break;
       case 'Music':
           include '../view/ANMusic.php';
           break;
@@ -56,6 +59,11 @@
       default:
           include('../view/index.php');
   }
+function listAllMusic()
+{
+  include '../view/listForm.php';
+}
+
 function processRegisterMember()
 {
   $firstName = $_POST['FirstName'];
