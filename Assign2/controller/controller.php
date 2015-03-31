@@ -61,7 +61,16 @@
   }
 function listAllMusic()
 {
-  include '../view/listForm.php';
+  $results = getAllMusic();
+  if(count($results)==0)
+  {
+    $errorMessage = "No Records Found";
+    include '../view/errorPage.php';
+  }
+  else
+  {
+    include '../view/listForm.php';
+  }
 }
 
 function processRegisterMember()

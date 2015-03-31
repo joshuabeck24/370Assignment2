@@ -4,7 +4,7 @@
     {
     	$dsn='mysql:host=localhost;dbname=s_jgbeck_audionexusdb';
     	$username = 'root';
-    	$password = '';
+    	$password = '1234';
     	try
     	{
     		$db= new PDO($dsn,$username,$password);
@@ -22,12 +22,12 @@
     	try
     	{
     		$db = getDBconnection();
-    		$query = "select artistName, albumName, trackName, releaseDate froms_jgbeck_audionexusdb.music order by artistName ";
+    		$query = "select artistName, albumName, trackName, releaseDate from s_jgbeck_audionexusdb.music order by artistName ";
     		$statement = $db->prepare($query);
     		$statement -> execute();
     		$results= $statement->fetchAll();
     		$statement->closeCursor();
-    		return $results
+    		return $results;
     	}
     	catch(PDOExeption $e)
     	{

@@ -16,27 +16,27 @@
 				 			<th>ALBUM</th>
 				 			<th>TRACK</th>
 				 			<th>RELEASE DATE</th>
+				 			<!-- <th>Play Meh</th> -->
+
 				 		</tr>
 				 	</tehead>
 				 	<tbody>
-				 		<tr>
-				 			<td>Emarosa</td>
-				 			<td>Relativity</td>
-				 			<td>A City Called Coma Part II</td>
-				 			<td>2008-07-08</td>
-				 		</tr>
-				 		<tr>
-				 			<td>Emarosa</td>
-				 			<td>Relativity</td>
-				 			<td>A City Called Coma Part II</td>
-				 			<td>2008-07-08</td>
-				 		</tr>
-				 		<tr>
-				 			<td>Emarosa</td>
-				 			<td>Relativity</td>
-				 			<td>A City Called Coma Part II</td>
-				 			<td>2008-07-08</td>
-				 		</tr>
+				 		<?php foreach ($results as $row) {//BEGIN LOOP ?>
+				 			
+				 		
+					 		<tr>
+					 			<td><?php echo $row['artistName']; ?></td>
+					 			<td><?php echo $row['albumName'] ; ?></td>
+					 			<td><?php echo $row['trackName'] ; ?></td>
+					 			<td><?php echo $row['releaseDate'] ; ?></td>
+					 			<td>
+					 				<!-- <audio controls>
+									<source src= <?php echo $row['filePath']; ?>  type= <?php echo $row['fileType']; ?> >
+									Your browser does not support the audio tag.
+									</audio>  -->
+					 			</td>
+					 		</tr>
+                        <?php }//END LOOP?>
 				 	</tbody>
 				 </table>
 				 
