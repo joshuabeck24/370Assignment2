@@ -36,6 +36,83 @@
     		die;
     	}
     }
+	function generalSearch($keyword)
+	{
+		try
+		{
+			$db = getDBconnection();
+		$query = "SELECT *
+		          FROM Music
+				  WHERE artistName LIKE :keyword OR
+				       albumName LIKE  :keyword OR
+				       trackName LIKE :keyword";
+		$statement = $db->prepare($query);
+		$statement->BindValue(':keyword',"$keyword");
+		$statement->execute();
+		$results = $statement->$fetchAll();
+		$statement->closeCursor();
+		return $results	
+			
+		}
+		catch(PDOExeption $e)
+		{
+    		$errorMessage = $e->getMessage();
+    		include '../view/errorPage.php';
+    		die;
+    	}
+		
+	}
+	function searchGoodRating($keyword)
+	{
+		try
+		{
+		$db = getDBconnection();
+		$query = "SELECT 
+		          FROM Music
+				  WHERE rating > 4.0 
+				  order by artistName";
+		$statement = $db->prepare($query);
+		$statement->BindValue(':keyword',"$keyword");
+		$statement->execute();
+		$results = $statement->$fetchAll();
+		$statement->closeCursor();
+		return $results	
+			
+		}
+		catch(PDOExeption $e)
+		{
+    		$errorMessage = $e->getMessage();
+    		include '../view/errorPage.php';
+    		die;
+    	}
+		
+	}
+	function searchLocalBand($keyword)
+	{
+		try
+		{
+		$db = getDBconnection();
+		$query = "SELECT 
+		          FROM Music
+				  WHERE isLocal = 'Y'
+				  order by artistName";
+		$statement = $db->prepare($query);
+		$statement->BindValue(':keyword',"$keyword");
+		$statement->execute();
+		$results = $statement->$fetchAll();
+		$statement->closeCursor();
+		return $results	
+			
+		}
+		catch(PDOExeption $e)
+		{
+    		$errorMessage = $e->getMessage();
+    		include '../view/errorPage.php';
+    		die;
+    	}
+		
+	}
+	
 	function getMembers() {
 		$file = fopen('../DataFiles/members.csv', 'rb');
 			while (($data = fgetcsv($file)) !== FALSE) {
