@@ -1,5 +1,6 @@
 <?php
   require_once '../model/model.php';
+  require_once '../lib/funLibrary.php';
   
   if (isset($_POST['action'])){
       $action = $_POST['action'];
@@ -24,6 +25,9 @@
           break;
       case 'FileManagement':
           include '../view/ANFileUpload.php';
+          break;
+      case 'IndividualRecord':
+          displayOneRecord();
           break;
       case 'Ideas':
           include '../view/ANIdeas.php';
@@ -59,6 +63,30 @@
       default:
           include('../view/index.php');
   }
+
+function displayOneRecord()
+{
+  $musicID = $_GET['ID'];
+  if(!isset($musicID))
+  {
+    $errorMessage = 'You Must Provide a ID to display';
+    include'../view/errorPage.php';
+  }
+  else
+  {
+    $row = getOneMusicRecord($musicID);
+    if($row == false)
+    {
+      $errorMessage = 'That ID was not found.';
+      include '../view/errorPage.php';
+    }
+    else
+    {
+      include'../view/individualRecord.php';
+    }
+  }
+}
+
 function listAllMusic()
 {
   $results = getAllMusic();

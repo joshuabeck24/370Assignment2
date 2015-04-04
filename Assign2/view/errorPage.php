@@ -2,7 +2,6 @@
 	$title = "Register Member";
 	include '../view/headerinclude.php';
 ?>
-
 <img alt="Picture of broken instrument" src="../images/error.png" class="imageLoad" />	
 <section style="margin-top:-80px;">
         <div style="margin-top: 80px;" class="container">

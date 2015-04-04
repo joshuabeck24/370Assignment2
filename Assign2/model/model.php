@@ -22,7 +22,7 @@
     	try
     	{
     		$db = getDBconnection();
-    		$query = "select artistName, albumName, trackName, releaseDate from s_jgbeck_audionexusdb.music order by artistName ";
+    		$query = "select ID, artistName, albumName, trackName, releaseDate from s_jgbeck_audionexusdb.music order by artistName ";
     		$statement = $db->prepare($query);
     		$statement -> execute();
     		$results= $statement->fetchAll();
@@ -44,6 +44,25 @@
 		fclose($file);		
 		return $memberArray;
 	}
+    function getOneMusicRecord($musicID)
+    {
+        try
+        {
+            $db = getDBconnection();
+            $query = "select * from s_jgbeck_audionexusdb.music where ID = $musicID";
+            $statement = $db->prepare($query);
+            $statement -> execute();
+            $result= $statement->fetch();
+            $statement->closeCursor();
+            return $result;
+        }
+        catch(PDOExeption $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/errorPage.php';
+            die;
+        }
+    }
 	function saveMemberInfo($firstName, $lastName, $email) {
 		$file = fopen('../DataFiles/members.csv', 'ab');
 		fputcsv($file, 
