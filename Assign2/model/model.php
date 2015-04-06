@@ -1,5 +1,28 @@
 <?php
 	
+
+function generalSearch($keyword)
+    {
+        try
+        {
+            $db = getDBconnection();
+            $query = "select * from s_jgbeck_audionexusdb.music where artistName like :keyword or albumName like  :keyword or trackName like :keyword";       
+            $statement = $db->prepare($query);
+            $statement->bindValue(':keyword',"%$keyword%");
+            $statement->execute();
+            $results = $statement->fetchAll();
+            $statement->closeCursor();
+            return $results;   
+        }
+        catch(PDOExeption $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/errorPage.php';
+            die;
+        }
+        
+    }
+
     function getDBconnection()
     {
     	$dsn='mysql:host=localhost;dbname=s_jgbeck_audionexusdb';
@@ -49,8 +72,9 @@
         try
         {
             $db = getDBconnection();
-            $query = "select * from s_jgbeck_audionexusdb.music where ID = $musicID";
+            $query = "select * from s_jgbeck_audionexusdb.music where ID = :musicID";
             $statement = $db->prepare($query);
+            $statement->bindValue(':musicID',$musicID);
             $statement -> execute();
             $result= $statement->fetch();
             $statement->closeCursor();
@@ -69,4 +93,26 @@
 			array($firstName, $lastName, $email));
 		fclose($file);		
 	}
+
+    function searchLocalBand()
+    {
+        try
+        {
+            $db = getDBconnection();
+            $query = "select * from s_jgbeck_audionexusdb.music where isLocalBand = 'Y' order by artistName";
+            $statement = $db->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll();
+            $statement->closeCursor();
+            return $results;
+        }
+        catch(PDOExeption $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/errorPage.php';
+            die;
+        }
+        
+    }
+
 ?>

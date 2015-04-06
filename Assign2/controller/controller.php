@@ -32,8 +32,8 @@
       case 'Ideas':
           include '../view/ANIdeas.php';
           break;
-      case 'ListAllMusic':
-           listAllMusic();
+      case 'ListMusic':
+           listMusic();
            break;
       case 'Music':
           include '../view/ANMusic.php';
@@ -45,6 +45,10 @@
       processRegisterMember();
           //include '../view/ANProcessRegisterMember.php';
           break;
+      case 'SearchMusic':
+           //include '../view/searchMusic.php';
+      searchMusic();
+           break;
       case 'SignIn':
           include '../view/ANSignup.php';
 		      break;
@@ -87,14 +91,31 @@ function displayOneRecord()
   }
 }
 
-function listAllMusic()
+function listMusic()
 {
-  $results = getAllMusic();
+  $listType = $_GET['ListType'];
+  if($listType == 'Local')
+  {
+    $results =searchLocalBand();
+  }
+  elseif($listType == 'GeneralSearch')
+  {
+    $results =generalSearch($_GET['Criteria']);
+  }
+  else
+  {
+    $results = getAllMusic();
+  }
+  //$results = getAllMusic();
   if(count($results)==0)
   {
     $errorMessage = "No Records Found";
     include '../view/errorPage.php';
   }
+  else if (count($results) == 1) {
+      $row = $results[0];
+      include '../view/individualRecord.php';
+    }
   else
   {
     include '../view/listForm.php';
@@ -126,4 +147,14 @@ function processRegisterMember()
 
     }
 }
+
+function searchMusic() {
+    $results = getAllMusic();
+    if (count($results) == 0) {
+      $errorMessage = "No Records Found";
+      include '../view/errorPage.php';
+    } else {
+      include '../view/searchMusic.php';
+    }   
+  }
 ?>
