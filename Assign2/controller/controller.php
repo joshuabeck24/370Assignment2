@@ -17,6 +17,9 @@
       case 'About' :
           include '../view/ANAbout.php';
           break;
+      case 'AddSong':
+          addSong();
+          break;
       case 'Admin':
           include '../view/ANAdmin.php';
           break;
@@ -67,6 +70,25 @@
       default:
           include('../view/index.php');
   }
+
+function addSong()
+{
+  $mode = "add";
+  $ArtistName = "";
+  $TrackName = "";
+  $AlbumName = "";
+  $Rating = 0.0;
+  $ReleaseDate = "";
+  $IsLocalBand = "N";//Local To PA, default No
+  $FilePath = "";//This will be programmatically grabbed
+  $FileMimeType = "";//This will be programmatically grabbed
+
+  include '../view/editMusic.php';//Form called edit but also used for add
+}
+function addSong()
+{
+  $mode = "edit";
+}
 
 function displayOneRecord()
 {
