@@ -10,12 +10,16 @@
 .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
   border: 1px solid #000;
 }
+
+
 /**/
 .aboutUsLogo
 {
 	font-family:Modeno;
 	font-size:30px;
 }
+.bold
+{font-weight: bold;}
 .logoText
 {
 	font-family:Modeno;
@@ -160,6 +164,8 @@ and (min-width : 321px) {
 .tclg{color:#8ECC8E;}
 .bl{border-left: solid black 1px;}
 .br{border-right: solid black 1px; padding-right:2px; margin-right:2px;}
+.tac{text-align: center;}
+.ma{margin: 0px auto;}
 
 a:hover {
   color:black;
