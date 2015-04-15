@@ -176,7 +176,8 @@ function processRegisterMember()
 function processAddEdit()
 {
   print_r($_POST);
-  print_r($_FILES['userfile']['type']);
+  print($_FILES['userfile']['type']);
+  //print($_FILES['userfile']['type']);
   //print($_FILES['userfile']);
   //print($FilePath);
   //print($FileMimeType);
@@ -211,15 +212,18 @@ function processAddEdit()
     $errorLog .= "\\n* Release Date is required and needs to be a valid date.";
   }
   //if there is no file then tell the user to select one 
-  /* if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
+   if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
   {
     $errorLog .= "\\n* No Song File Has Been Selected For Upload. Please choose one and Retry.";
   }
-  else if (($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/wav") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") )
+  //If the file type is OK and there are NO errors at this point it is ok to add the file
+  else if ((($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/wav") OR ($_FILES['userfile']['type']=="audio/x-wav") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4")) AND ($errorLog =="") )
   {//When Here a file has been uploaded AND it is of the correct type so process and add
     $musicDir = '../music/';
-    $uploadedFile = $musicDir . $_FILES['userfile']['name']; 
-    $FileMimeType = '"' . $_FILES['userfile']['type'] . '"';
+    $uploadedFile = $musicDir . $_FILES['userfile']['name'];
+    if(($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4"))
+    {$FileMimeType = '"audio/mpeg"';}//assign the correct file type to be added to music when it is played(HTML5 Player)
+    else {$FileMimeType = '"audio/wav"';}//The only other type would be a wav type so asssign it if it is not of the mp... variety
     //do not do this move until we validate all fields
     move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
     $FilePath = '"' . $uploadedFile . '"';
@@ -230,10 +234,14 @@ function processAddEdit()
   {
     $errorLog .= "\\n* Sorry You Did not Upload A Correct File Type.";
     //include '../view/errorPage.php'; 
-  } */
+  } 
   if($errorLog != "")
   {
     include '../view/editMusic.php';
+  }
+  else//NO ERRORS
+  {
+     $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName );
   }
 
   //$FilePath = "";//This will be programmatically grabbed
@@ -264,61 +272,6 @@ function processSongUpload()
     include '../view/errorPage.php';
   }
 }
-
-
-/*
- //This function deals with processing images
-                    function processImages()
-                    {
-                        //Define the directory
-                        $imagesDir = "../HomepageImages/";
-                        //Grab the name of the file and set up its path
-                        $uploadedFile = $imagesDir . $_FILES['userfile']['name'];
-                        //grab information needed to check if the image is correct size
-                        $image_info = getimagesize($_FILES['userfile']['tmp_name']);
-                        $image_width = $image_info[0];                                       
-                        $image_height = $image_info[1]; 
-                        //Check the width(matters more than height) if its wrong notify user
-                        if($image_width <1297)
-                        {
-                            echo"<p>Sorry, that image is not wide enough(must be larger than 1297px width)</p>";
-                        }
-                        //else move the file into the directory and notify user of success
-                        else
-                        {
-                            move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
-                            echo'<p>Image Succesfully Uploaded</p>';
-                            
-                            //Get the directory of the images
-                            $current_dir = '../HomepageImages';
-                            //Open it
-                            $dir = opendir($current_dir);
-                            //Read all files there and add them to an array
-                            while(false !== ($file = readdir($dir))){
-                                    //strip out the two entries of . and ..
-                                    if($file != "." && $file != ".."){
-                                            $imageArray[] = $file;//will be using this to print the directory
-                                    }
-                            }
-                            //When done close the directory
-                            closedir($dir);
-                            echo '<div style="text-align:center"> <p>Current File Listing</p> ';
-                            //For every file in the directory, print its name so user knows what is there
-                            foreach ($imageArray as $image) 
-                            {
-                               print($image . "<br>");
-                            }
-                            echo '</div>';//Close the div from the first echo containg "Current File Listing"
-                        }
-                        
-                    }
-
-*/
-
-
-
-
-
 
 function searchMusic() {
     $results = getAllMusic();
