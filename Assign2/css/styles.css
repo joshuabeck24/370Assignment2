@@ -19,7 +19,7 @@
 	font-size:30px;
 }
 .bold
-{font-weight: bold; margin-right: 5px;}
+{font-weight: bold;}
 .logoText
 {
 	font-family:Modeno;
@@ -49,11 +49,6 @@
 	width:100%;
 	height:300px;
 	margin-top:100px;	
-}
-.needed
-{
-	color:red;
-	font-weight: bold;
 }
 .userLoginImage
 {

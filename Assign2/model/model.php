@@ -87,44 +87,6 @@ function generalSearch($keyword)
             die;
         }
     }
-
-    function insertMusic($albumName,$artistName,$filePath,$fileType,$isLocalBand,$rating,$releaseDate,$trackName)
-    {
-        //try
-        //{
-            $db = getDBconnection();
-            $query = 'insert into s_jgbeck_audionexusdb.music (albumName, artistName,filePath,fileType,isLocalBand,rating,releaseDate,trackName)
-                      values (:albumName, :artistName, :filePath,:fileType, :isLocalBand, :rating, :releaseDate, :trackName)';
-            $statement = $db->prepare($query);
-            $statement->bindValue(':albumName',$albumName);
-            $statement->bindValue(':artistName',$artistName);
-            $statement->bindValue(':filePath',$filePath);
-            $statement->bindValue(':fileType',$fileType);
-            $statement->bindValue(':isLocalBand',$isLocalBand);
-            $statement->bindValue(':rating',$rating);
-            $statement->bindValue(':releaseDate',$releaseDate);
-            $statement->bindValue(':trackName',$trackName);
-            $success = $statement->execute();
-            $statement->closeCursor();
-            if($success)
-            {
-                return $db->lastInsertId();//Get generated ID sent back to controller
-            }
-            else{logSQLError($statement->errorInfo());}//Log error to debug
-
-        /*}
-        catch(PDOExeption $e)
-        {
-            $errorMessage = $e->getMessage();
-            include '../view/errorPage.php';
-            die;
-        }*/
-    }
-    function logSQLError($errorMessage)
-    {
-        include '../view/errorPage.php';
-        //die(); Not needed
-    }
 	function saveMemberInfo($firstName, $lastName, $email) {
 		$file = fopen('../DataFiles/members.csv', 'ab');
 		fputcsv($file, 
