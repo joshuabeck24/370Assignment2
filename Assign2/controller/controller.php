@@ -241,7 +241,7 @@ function processAddEdit()
   }
   else//NO ERRORS
   {
-     $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName );
+     $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
      header("Location: ../controller/controller.php?action=IndividualRecord&ID=$ID");
   }
 }

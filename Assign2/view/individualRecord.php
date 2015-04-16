@@ -31,7 +31,15 @@
 						 Your browser does not support the audio tag.
 					 </audio>
 				 </div> 
-					 
+
+				 <!-- Buttons for editing -->
+                 
+				 <div style="margin-top:15px;"class="ma col-lg-12">
+				 	<input type="button" value="Add" onclick="" class="btn btn-success">
+				 	<input type="button" value="Edit" onclick="" class="btn btn-success">
+				 	<input type="button" value="Delete" onclick="" class="btn btn-success">
+				 </div> 
+
 			</div>
 		</div>
 		</section>
