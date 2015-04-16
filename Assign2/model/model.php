@@ -110,7 +110,10 @@ function generalSearch($keyword)
             {
                 return $db->lastInsertId();//Get generated ID sent back to controller
             }
-            else{logSQLError($statement->errorInfo());}//Log error to debug
+            else
+            {
+                logSQLError($statement->errorInfo());
+            }
 
         /*}
         catch(PDOExeption $e)
@@ -120,8 +123,10 @@ function generalSearch($keyword)
             die;
         }*/
     }
-    function logSQLError($errorMessage)
+    function logSQLError($errorInfo)
     {
+        $errorMessage = $errorInfo[2];//sql error (we dont want to show)
+        $errorMessage = 'There was an issue with the upload. Please retry.';//Tell them something went wrong instead
         include '../view/errorPage.php';
         //die(); Not needed
     }
@@ -152,5 +157,4 @@ function generalSearch($keyword)
         }
         
     }
-
 ?>

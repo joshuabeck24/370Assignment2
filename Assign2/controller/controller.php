@@ -175,8 +175,8 @@ function processRegisterMember()
 
 function processAddEdit()
 {
-  print_r($_POST);
-  print($_FILES['userfile']['type']);
+  //print_r($_POST);
+  //print($_FILES['userfile']['type']);
   //print($_FILES['userfile']['type']);
   //print($_FILES['userfile']);
   //print($FilePath);
@@ -242,11 +242,8 @@ function processAddEdit()
   else//NO ERRORS
   {
      $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName );
+     header("Location: ../controller/controller.php?action=IndividualRecord&ID=$ID");
   }
-
-  //$FilePath = "";//This will be programmatically grabbed
-  //$FileMimeType = "";//This will be programmatically grabbed
-  //processSongUpload();
 }
 
 function processSongUpload()
