@@ -36,7 +36,7 @@
                  
 				 <div style="margin-top:15px;"class="ma col-lg-12">
 				 	<input type="button" value="Add" onclick="" class="btn btn-success">
-				 	<input type="button" value="Edit" onclick="" class="btn btn-success">
+				 	<input type="button" value="Edit" onclick="document.location= '../controller/controller.php?action=EditMusic&ID=<?php echo $row['ID'] ; ?>';" class="btn btn-success">
 				 	<input type="button" value="Delete" onclick="" class="btn btn-success">
 				 </div> 
 

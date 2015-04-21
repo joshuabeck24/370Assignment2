@@ -155,6 +155,34 @@ function generalSearch($keyword)
             include '../view/errorPage.php';
             die;
         }
-        
     }
+
+    function updateMusic($ID,$albumName,$artistName,$isLocalBand,$rating,$releaseDate,$trackName)
+    {
+        //try
+        //{
+            $db = getDBconnection();
+            $query = 'update s_jgbeck_audionexusdb.music
+                      set albumName = :albumName, artistName= :artistName,isLocalBand = :isLocalBand,rating = :rating,releaseDate = :releaseDate,trackName = :trackName
+                      where ID = :musicID';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':musicID',$ID);
+            $statement->bindValue(':albumName',$albumName);
+            $statement->bindValue(':artistName',$artistName);
+            $statement->bindValue(':isLocalBand',$isLocalBand);
+            $statement->bindValue(':rating',$rating);
+            $statement->bindValue(':releaseDate',$releaseDate);
+            $statement->bindValue(':trackName',$trackName);
+            $success = $statement->execute();
+            $statement->closeCursor();
+            if($success)
+            {
+                return $statement->rowCount();//Rows that have been effected
+            }
+            else
+            {
+                logSQLError($statement->errorInfo());
+            }
+    }
+
 ?>

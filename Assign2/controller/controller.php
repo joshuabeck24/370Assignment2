@@ -23,6 +23,9 @@
       case 'AddMusic':
            addSong();
            break;
+     case 'EditMusic':
+           editSong();
+           break;
       case 'EmailSend':
           include '../view/ANEmailsend.php';
           break;
@@ -90,7 +93,35 @@ function addSong()
 }
 function editSong()
 {
-  $mode = "edit";
+  $musicID = $_GET['ID'];
+  if(!isset($musicID))
+  {
+    $errorMessage = 'You Must Provide a ID to display';
+    include'../view/errorPage.php';
+  }
+  else
+  {
+    $row = getOneMusicRecord($musicID);
+    if($row == false)
+    {
+      $errorMessage = 'That ID was not found.';
+      include '../view/errorPage.php';
+    }
+    else
+    {
+      $mode = "edit";
+      $musicID = $row['ID'];
+      $ArtistName = $row['artistName'];
+      $TrackName = $row['trackName'];
+      $AlbumName = $row['albumName'];
+      $Rating = $row['rating'];
+      $ReleaseDate = $row['releaseDate'];
+      $IsLocalBand = $row['isLocalBand'];//Local To PA, default No
+      //Non editable $FilePath = "";//This will be programmatically grabbed
+      //Non editable $FileMimeType = "";//This will be programmatically grabbed
+      include'../view/editMusicModified.php';
+    }
+  }
 }
 
 function displayOneRecord()
@@ -153,6 +184,7 @@ function processRegisterMember()
   $lastName = $_POST['LastName'];
   $email = $_POST['Email'];
 
+
   if (empty($firstName)) {
         echo "<h3>You must provide a first name to be registered.</h3>";
   } else {
@@ -181,6 +213,8 @@ function processAddEdit()
   //print($_FILES['userfile']);
   //print($FilePath);
   //print($FileMimeType);
+  $musicID = $_POST['ID'];
+  $mode = $_POST['Mode'];
   $ArtistName = $_POST['Artist'];
   $TrackName = $_POST['Song'];
   $AlbumName = $_POST['Album'];
@@ -241,7 +275,14 @@ function processAddEdit()
   }
   else//NO ERRORS
   {
-     $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+    if($mode =='add')
+    {
+      $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+    }
+    else
+    {//MAY NEED TO CHANGE THIS FOR NOT HANDLING FILE TYPES AND SUCH
+      $rowsAffected = updateMusic($musicID,$AlbumName,$ArtistName,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+    }
      header("Location: ../controller/controller.php?action=IndividualRecord&ID=$ID");
   }
 }
