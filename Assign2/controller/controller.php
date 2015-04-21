@@ -245,45 +245,53 @@ function processAddEdit()
   {
     $errorLog .= "\\n* Release Date is required and needs to be a valid date.";
   }
-  //if there is no file then tell the user to select one 
-   if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
+  if ($mode=='add')
   {
-    $errorLog .= "\\n* No Song File Has Been Selected For Upload. Please choose one and Retry.";
-  }
-  //If the file type is OK and there are NO errors at this point it is ok to add the file
-  else if ((($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/wav") OR ($_FILES['userfile']['type']=="audio/x-wav") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4")) AND ($errorLog =="") )
-  {//When Here a file has been uploaded AND it is of the correct type so process and add
-    $musicDir = '../music/';
-    $uploadedFile = $musicDir . $_FILES['userfile']['name'];
-    if(($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4"))
-    {$FileMimeType = '"audio/mpeg"';}//assign the correct file type to be added to music when it is played(HTML5 Player)
-    else {$FileMimeType = '"audio/wav"';}//The only other type would be a wav type so asssign it if it is not of the mp... variety
-    //do not do this move until we validate all fields
-    move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
-    $FilePath = '"' . $uploadedFile . '"';
+      //if there is no file then tell the user to select one 
+      if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
+      {
+        $errorLog .= "\\n* No Song File Has Been Selected For Upload. Please choose one and Retry.";
+      }
+      //If the file type is OK and there are NO errors at this point it is ok to add the file
+      else if ((($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/wav") OR ($_FILES['userfile']['type']=="audio/x-wav") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4")) AND ($errorLog =="") )
+      {//When Here a file has been uploaded AND it is of the correct type so process and add
+        $musicDir = '../music/';
+        $uploadedFile = $musicDir . $_FILES['userfile']['name'];
+        if(($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4"))
+        {$FileMimeType = '"audio/mpeg"';}//assign the correct file type to be added to music when it is played(HTML5 Player)
+        else {$FileMimeType = '"audio/wav"';}//The only other type would be a wav type so asssign it if it is not of the mp... variety
+        //do not do this move until we validate all fields
+        move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
+        $FilePath = '"' . $uploadedFile . '"';
+        //echo'<p>Song Succesfully Uploaded</p>';
+       }
+        else
+       {
+        $errorLog .= "\\n* Sorry You Did not Upload A Correct File Type.";
+        //include '../view/errorPage.php'; 
+        }
+         if($errorLog != "")
+         {
+           include '../view/editMusic.php';
+         }
+         else//NO ERRORS
+         {
+           $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+            header("Location: ../controller/controller.php?action=IndividualRecord&ID=$ID");
+         }
+    }
 
-    //echo'<p>Song Succesfully Uploaded</p>';
-  }
   else
-  {
-    $errorLog .= "\\n* Sorry You Did not Upload A Correct File Type.";
-    //include '../view/errorPage.php'; 
-  } 
-  if($errorLog != "")
-  {
-    include '../view/editMusic.php';
-  }
-  else//NO ERRORS
-  {
-    if($mode =='add')
+  {//MODE IS EDIT
+    if($errorLog != "")
     {
-      $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+      include '../view/editMusic.php';
     }
-    else
-    {//MAY NEED TO CHANGE THIS FOR NOT HANDLING FILE TYPES AND SUCH
-      $rowsAffected = updateMusic($musicID,$AlbumName,$ArtistName,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+    else//NO ERRORS
+    {
+        $rowsAffected = updateMusic($musicID,$AlbumName,$ArtistName,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+        header("Location: ../controller/controller.php?action=IndividualRecord&ID=$musicID");
     }
-     header("Location: ../controller/controller.php?action=IndividualRecord&ID=$ID");
   }
 }
 
