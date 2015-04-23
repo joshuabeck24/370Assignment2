@@ -23,6 +23,9 @@
       case 'AddMusic':
            addSong();
            break;
+      case 'DeleteMusic':
+           deleteMusic();
+           break;
      case 'EditMusic':
            editSong();
            break;
@@ -31,6 +34,9 @@
           break;
       case 'FileManagement':
           include '../view/ANFileUpload.php';
+          break;
+      case 'Home':
+          include '../view/index.php';
           break;
       case 'IndividualRecord':
           displayOneRecord();
@@ -91,6 +97,30 @@ function addSong()
 
   include '../view/editMusic.php';//Form called edit but also used for add
 }
+
+function deleteMusic()
+{
+   $musicID = $_GET['ID'];
+  if(!isset($musicID))
+  {
+    $errorMessage = 'You Must Provide a ID to delete';
+    include'../view/errorPage.php';
+  }
+  else
+  {
+    $row = deleteSong($musicID);
+    if($row != 1)
+    {
+      $errorMessage = "The delete affected $row rows.";
+      include '../view/errorPage.php';
+    }
+    else
+    {
+      header("Location: ../controller/controller.php?action=Home");
+    }
+  }
+}
+
 function editSong()
 {
   $musicID = $_GET['ID'];

@@ -1,6 +1,22 @@
 <?php
 	
-
+function deleteSong($musicID)
+{
+    $db = getDBconnection();
+    $query = "delete from s_jgbeck_audionexusdb.music where ID = :musicID";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':musicID',$musicID);
+    $statement -> execute();
+    $statement->closeCursor();
+    if($success)
+    {
+        return $statement->rowCount();//Rows affected
+    }
+    else
+    {
+        logSQLError($statement->errorInfo());
+    }
+}
 function generalSearch($keyword)
     {
         try

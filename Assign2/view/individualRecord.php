@@ -37,13 +37,29 @@
 				 <div style="margin-top:15px;"class="ma col-lg-12">
 				 	<input type="button" value="Add" onclick="" class="btn btn-success">
 				 	<input type="button" value="Edit" onclick="document.location= '../controller/controller.php?action=EditMusic&ID=<?php echo $row['ID'] ; ?>';" class="btn btn-success">
-				 	<input type="button" value="Delete" onclick="" class="btn btn-success">
+				 	<input type="button" value="Delete" onclick="confirmDelete()" class="btn btn-success">
 				 </div> 
 
 			</div>
 		</div>
 		</section>
 		<br>
+
+		<script>
+				function confirmDelete()
+			    {
+                    //window.confirm("Are you sure you don't want to rate the song?");
+					var choice = confirm("Are you sure you don't want to delete this song?");
+					if (choice == true) //OK was pressed
+					{
+					    document.location ='../controller/controller.php?action=DeleteMusic&ID=<?php echo $row['ID'] ; ?>';
+					} 
+					else 
+					{
+					    return;
+					}
+			   }
+		</script>
 <?php
     include '../view/footerinclude.php';
 ?>
