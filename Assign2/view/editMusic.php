@@ -14,21 +14,21 @@
 					  		<?php
 					  			if($mode == 'edit')
 							  	{
-					  	     		echo '<input type="hidden" name="ID" value=$musicID />';
+					  	     		echo "<input type='hidden' name='ID' value=$musicID />";
 							  	}
 							?>
 					  	     <input type="hidden" name="Mode" value=<?php echo $mode; ?> />
 							 <span class="bold">Artist:</span> <span class="needed"> * </span> 
-							 <input autofocus type="text" size="30"required=""  maxlength="50" name="Artist" value="<?php echo $ArtistName ?>" />
+							 <input autofocus type="text" size="30"required=""  maxlength="50" name="Artist" value="<?php echo htmlspecialchars($ArtistName) ?>" />
 							 <br /><br />
 							 <span class="bold">Album:</span> <span class="needed"> * </span> 
-							 <input type="text" size="30" required="" maxlength="50" name="Album" value="<?php echo $AlbumName ?>" /> 
+							 <input type="text" size="30" required="" maxlength="50" name="Album" value="<?php echo htmlspecialchars($AlbumName) ?>" /> 
 	                         <br /><br />
 	                         <span class="bold">Song:</span> <span class="needed"> * </span> 
-	                         <input type="text" size="30" required="" maxlength="50" name="Song" value="<?php echo $TrackName ?>" />
+	                         <input type="text" size="30" required="" maxlength="50" name="Song" value="<?php echo htmlspecialchars($TrackName) ?>" />
 	                         <br/><br />
 	                         <span class="bold">Release Date:</span> <span class="needed"> * </span> 
-	                         <input type="text" size="10" required="" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" name="ReleaseDate" value="<?php echo toDisplayDate($ReleaseDate)  ?>" />
+	                         <input type="text" size="10" required="" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" name="ReleaseDate" value="<?php echo htmlspecialchars(toDisplayDate($ReleaseDate))  ?>" />
 	                         <br/><br />
 	                         <span class="bold">Local:</span> 
 	                         <input type="checkbox" name="IsLocal" value="<?php if($IsLocalBand=='Y') echo 'checked' ?>" />

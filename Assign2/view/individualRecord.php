@@ -11,13 +11,13 @@
 				 <hr />
 
 				  <div class="col-lg-6">
-						 <span class="bold">Artist:</span> <?php echo $row['artistName']; ?>
+						 <span class="bold">Artist:</span> <?php echo htmlspecialchars($row['artistName']) ?>
 						 <br />
-						 <span class="bold">Album:</span> <?php echo $row['albumName'] ; ?>
+						 <span class="bold">Album:</span> <?php echo htmlspecialchars($row['albumName']) ?>
                          <br />
-                         <span class="bold">Song:</span> <?php echo $row['trackName'] ; ?>
+                         <span class="bold">Song:</span> <?php echo htmlspecialchars($row['trackName']) ?>
                          <br/>
-                         <span class="bold">Release Date:</span> <?php echo toDisplayDate($row['releaseDate'])  ?>
+                         <span class="bold">Release Date:</span> <?php echo htmlspecialchars(toDisplayDate($row['releaseDate']))  ?>
                          <br/>
                          <span class="bold">Local:</span> <?php echo $row['isLocalBand'] ; ?>
 						 <input id="input-2" class="rating rating-xs" data-min="0" data-max="5" data-step="0.1" data-size="xs" data-readonly="true" value="<?php echo $row['rating'] ; ?>">

@@ -27,12 +27,12 @@
 					 		<tr>
 					 			<td>
 					 				<a href="../controller/controller.php?action=IndividualRecord&ID=<?php echo $row['ID'] ; ?>">
-					 				   <?php echo $row['artistName']; ?>
+					 				   <?php echo htmlspecialchars($row['artistName']) ?>
 					 			    </a>
 					 			</td>
-					 			<td><?php echo $row['albumName'] ; ?></td>
-					 			<td><?php echo $row['trackName'] ; ?></td>
-					 			<td><?php echo toDisplayDate($row['releaseDate'])  ?></td>
+					 			<td><?php echo htmlspecialchars($row['albumName'])  ?></td>
+					 			<td><?php echo htmlspecialchars($row['trackName']) ?></td>
+					 			<td><?php echo htmlspecialchars(toDisplayDate($row['releaseDate']))  ?></td>
 					 		</tr>
                         <?php }//END LOOP?>
 				 	</tbody>

@@ -1,7 +1,7 @@
 <?php
   require_once '../model/model.php';
   require_once '../lib/funLibrary.php';
-  
+  unquote();//Check for magic_quote_gpc and remove effects
   if (isset($_POST['action'])){
       $action = $_POST['action'];
   }
@@ -315,6 +315,7 @@ function processAddEdit()
 
   else
   {//MODE IS EDIT
+    //$musicID = $_POST['ID'];
     if($errorLog != "")
     {
       include '../view/editMusic.php';
