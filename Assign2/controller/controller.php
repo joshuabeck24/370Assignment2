@@ -149,7 +149,7 @@ function editSong()
       $IsLocalBand = $row['isLocalBand'];//Local To PA, default No
       //Non editable $FilePath = "";//This will be programmatically grabbed
       //Non editable $FileMimeType = "";//This will be programmatically grabbed
-      include'../view/editMusicModified.php';
+      include'../view/editMusic.php';
     }
   }
 }
@@ -243,7 +243,9 @@ function processAddEdit()
   //print($_FILES['userfile']);
   //print($FilePath);
   //print($FileMimeType);
-  $musicID = $_POST['ID'];
+  $musicID = -1;
+  if(!is_null($_POST['ID']))
+    $musicID = $_POST['ID'];
   $mode = $_POST['Mode'];
   $ArtistName = $_POST['Artist'];
   $TrackName = $_POST['Song'];

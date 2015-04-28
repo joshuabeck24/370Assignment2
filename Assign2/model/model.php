@@ -6,7 +6,7 @@ function deleteSong($musicID)
     $query = "delete from s_jgbeck_audionexusdb.music where ID = :musicID";
     $statement = $db->prepare($query);
     $statement->bindValue(':musicID',$musicID);
-    $statement -> execute();
+    $success = $statement->execute();
     $statement->closeCursor();
     if($success)
     {
