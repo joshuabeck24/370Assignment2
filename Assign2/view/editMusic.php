@@ -7,10 +7,17 @@
 		<section>
 		 <div class="container">
 			 <div class="jumbotron container">
-				 <h2>Edit Music</h2>
+				 <h2>Add Music</h2>
 				 <hr />
                     <form enctype="multipart/form-data" class="ma" id="MusicForm" action ="../controller/controller.php?action=ProcessAddEdit" method="post" onsubmit="doubleCheck()">
 					  <div class="">
+					  		<?php
+					  			if($mode == 'edit')
+							  	{
+					  	     		echo '<input type="hidden" name="ID" value=$musicID />';
+							  	}
+							?>
+					  	     <input type="hidden" name="Mode" value=<?php echo $mode; ?> />
 							 <span class="bold">Artist:</span> <span class="needed"> * </span> 
 							 <input autofocus type="text" size="30"required=""  maxlength="50" name="Artist" value="<?php echo $ArtistName ?>" />
 							 <br /><br />
@@ -27,8 +34,13 @@
 	                         <input type="checkbox" name="IsLocal" value="<?php if($IsLocalBand=='Y') echo 'checked' ?>" />
 	                         <!-- Not sure how I want to go about adding the song and its information -->
 							 <input name ="Rating" required="" id="rating" class="rating rating-xs" data-min="0" data-max="5" data-step="0.1" data-size="xs" data-readonly="false" value="<?php echo $Rating ?>">
-							  <div style="padding-left:30%;" class=" pull-left divInJumbo">  <span class="needed"> * </span> Song File(.mp3, .m4a, .wav)</div>  
-							  <input class="pull-left center-block" required="" name="userfile" type="file" /> <br/><br/>
+							  <?php
+							  	if($mode == 'add')
+							  	{
+								  echo '<div style="padding-left:30%;" class=" pull-left divInJumbo">  <span class="needed"> * </span> Song File(.mp3, .m4a, .wav)</div>  
+								  <input class="pull-left center-block" required="" name="userfile" type="file" /> <br/><br/>';
+								}
+							  ?>
 		                    <input style="clear:both;" class="btn btn-success" type="submit" value="Save" /> <br/>
 					  </div> <!-- Col -->
                   </form>				 

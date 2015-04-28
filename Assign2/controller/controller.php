@@ -23,11 +23,20 @@
       case 'AddMusic':
            addSong();
            break;
+      case 'DeleteMusic':
+           deleteMusic();
+           break;
+     case 'EditMusic':
+           editSong();
+           break;
       case 'EmailSend':
           include '../view/ANEmailsend.php';
           break;
       case 'FileManagement':
           include '../view/ANFileUpload.php';
+          break;
+      case 'Home':
+          include '../view/index.php';
           break;
       case 'IndividualRecord':
           displayOneRecord();
@@ -88,9 +97,61 @@ function addSong()
 
   include '../view/editMusic.php';//Form called edit but also used for add
 }
+
+function deleteMusic()
+{
+   $musicID = $_GET['ID'];
+  if(!isset($musicID))
+  {
+    $errorMessage = 'You Must Provide a ID to delete';
+    include'../view/errorPage.php';
+  }
+  else
+  {
+    $row = deleteSong($musicID);
+    if($row != 1)
+    {
+      $errorMessage = "The delete affected $row rows.";
+      include '../view/errorPage.php';
+    }
+    else
+    {
+      header("Location: ../controller/controller.php?action=Home");
+    }
+  }
+}
+
 function editSong()
 {
-  $mode = "edit";
+  $musicID = $_GET['ID'];
+  if(!isset($musicID))
+  {
+    $errorMessage = 'You Must Provide a ID to display';
+    include'../view/errorPage.php';
+  }
+  else
+  {
+    $row = getOneMusicRecord($musicID);
+    if($row == false)
+    {
+      $errorMessage = 'That ID was not found.';
+      include '../view/errorPage.php';
+    }
+    else
+    {
+      $mode = "edit";
+      $musicID = $row['ID'];
+      $ArtistName = $row['artistName'];
+      $TrackName = $row['trackName'];
+      $AlbumName = $row['albumName'];
+      $Rating = $row['rating'];
+      $ReleaseDate = $row['releaseDate'];
+      $IsLocalBand = $row['isLocalBand'];//Local To PA, default No
+      //Non editable $FilePath = "";//This will be programmatically grabbed
+      //Non editable $FileMimeType = "";//This will be programmatically grabbed
+      include'../view/editMusic.php';
+    }
+  }
 }
 
 function displayOneRecord()
@@ -153,6 +214,7 @@ function processRegisterMember()
   $lastName = $_POST['LastName'];
   $email = $_POST['Email'];
 
+
   if (empty($firstName)) {
         echo "<h3>You must provide a first name to be registered.</h3>";
   } else {
@@ -181,6 +243,10 @@ function processAddEdit()
   //print($_FILES['userfile']);
   //print($FilePath);
   //print($FileMimeType);
+  $musicID = -1;
+  if(!is_null($_POST['ID']))
+    $musicID = $_POST['ID'];
+  $mode = $_POST['Mode'];
   $ArtistName = $_POST['Artist'];
   $TrackName = $_POST['Song'];
   $AlbumName = $_POST['Album'];
@@ -211,38 +277,53 @@ function processAddEdit()
   {
     $errorLog .= "\\n* Release Date is required and needs to be a valid date.";
   }
-  //if there is no file then tell the user to select one 
-   if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
+  if ($mode=='add')
   {
-    $errorLog .= "\\n* No Song File Has Been Selected For Upload. Please choose one and Retry.";
-  }
-  //If the file type is OK and there are NO errors at this point it is ok to add the file
-  else if ((($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/wav") OR ($_FILES['userfile']['type']=="audio/x-wav") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4")) AND ($errorLog =="") )
-  {//When Here a file has been uploaded AND it is of the correct type so process and add
-    $musicDir = '../music/';
-    $uploadedFile = $musicDir . $_FILES['userfile']['name'];
-    if(($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4"))
-    {$FileMimeType = '"audio/mpeg"';}//assign the correct file type to be added to music when it is played(HTML5 Player)
-    else {$FileMimeType = '"audio/wav"';}//The only other type would be a wav type so asssign it if it is not of the mp... variety
-    //do not do this move until we validate all fields
-    move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
-    $FilePath = '"' . $uploadedFile . '"';
+      //if there is no file then tell the user to select one 
+      if($_FILES['userfile']['error'] == UPLOAD_ERR_NO_FILE)
+      {
+        $errorLog .= "\\n* No Song File Has Been Selected For Upload. Please choose one and Retry.";
+      }
+      //If the file type is OK and there are NO errors at this point it is ok to add the file
+      else if ((($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/wav") OR ($_FILES['userfile']['type']=="audio/x-wav") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4")) AND ($errorLog =="") )
+      {//When Here a file has been uploaded AND it is of the correct type so process and add
+        $musicDir = '../music/';
+        $uploadedFile = $musicDir . $_FILES['userfile']['name'];
+        if(($_FILES['userfile']['type']=="audio/mpeg") OR ($_FILES['userfile']['type']=="audio/mp4a-latm") OR ($_FILES['userfile']['type']=="audio/mp3") OR ($_FILES['userfile']['type']=="audio/mp4"))
+        {$FileMimeType = '"audio/mpeg"';}//assign the correct file type to be added to music when it is played(HTML5 Player)
+        else {$FileMimeType = '"audio/wav"';}//The only other type would be a wav type so asssign it if it is not of the mp... variety
+        //do not do this move until we validate all fields
+        move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadedFile);
+        $FilePath = '"' . $uploadedFile . '"';
+        //echo'<p>Song Succesfully Uploaded</p>';
+       }
+        else
+       {
+        $errorLog .= "\\n* Sorry You Did not Upload A Correct File Type.";
+        //include '../view/errorPage.php'; 
+        }
+         if($errorLog != "")
+         {
+           include '../view/editMusic.php';
+         }
+         else//NO ERRORS
+         {
+           $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+            header("Location: ../controller/controller.php?action=IndividualRecord&ID=$ID");
+         }
+    }
 
-    //echo'<p>Song Succesfully Uploaded</p>';
-  }
   else
-  {
-    $errorLog .= "\\n* Sorry You Did not Upload A Correct File Type.";
-    //include '../view/errorPage.php'; 
-  } 
-  if($errorLog != "")
-  {
-    include '../view/editMusic.php';
-  }
-  else//NO ERRORS
-  {
-     $ID = insertMusic($AlbumName,$ArtistName,$FilePath,$FileMimeType,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName );
-     header("Location: ../controller/controller.php?action=IndividualRecord&ID=$ID");
+  {//MODE IS EDIT
+    if($errorLog != "")
+    {
+      include '../view/editMusic.php';
+    }
+    else//NO ERRORS
+    {
+        $rowsAffected = updateMusic($musicID,$AlbumName,$ArtistName,$IsLocalBand,$Rating,toMySQLDate($ReleaseDate),$TrackName);
+        header("Location: ../controller/controller.php?action=IndividualRecord&ID=$musicID");
+    }
   }
 }
 
