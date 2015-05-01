@@ -1,4 +1,5 @@
 		
 	</section>	<!-- end of main section -->
-</body>
-</html>
+</div>
+</div>
+<?php include '../view/footerInclude.php'; ?>

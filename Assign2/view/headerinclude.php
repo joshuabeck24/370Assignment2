@@ -22,6 +22,7 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 		<!-- -->
         <script src="../js/star-rating.js"></script>
+        
 		<script>
                     function initialize() {
                       var mapCanvas = document.getElementById('map-canvas');

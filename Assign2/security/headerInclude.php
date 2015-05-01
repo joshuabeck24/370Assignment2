@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>
-		<?php echo $title; ?>
-	</title>
-    <script type="text/javascript" src="attributes.js"></script>
-</head>
-<body>
+<?php include '../view/headerInclude.php'; ?>
+<div class="container">
+	<div style="margin-top: 120px; margin-bottom:20px;" class="jumbotron">
 	<section id="main">
-		<h1>Control Panel</h1>
+		<script type="text/javascript" src="attributes.js"></script>
+		<h3>Control Panel</h3>
 
 		<?php if (userIsAuthorized("SecurityManageUsers")) {  ?>
 				<a href="../security/index.php?action=SecurityManageUsers">Manage Users</a> &nbsp;

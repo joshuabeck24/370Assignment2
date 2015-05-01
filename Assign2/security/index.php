@@ -10,7 +10,7 @@
     } else {
 		$action = "SecurityHome";	// Default action that guest is authorized to use.
 	}
-
+    //THIS IS THE SECURITY CHECK
     if ($action != 'SecurityLogin' && $action != 'SecurityProcessLogin' && !userIsAuthorized($action)) {
         if(!loggedIn()) {
             header("Location:../security/index.php?action=SecurityLogin&RequestedPage=" . urlencode($_SERVER['REQUEST_URI']));
