@@ -1,4 +1,7 @@
 <?php
+
+  session_start();
+  require_once("../security/model.php");
   require_once '../model/model.php';
   require_once '../lib/funLibrary.php';
   unquote();//Check for magic_quote_gpc and remove effects
@@ -12,75 +15,83 @@
       include '../view/index.php';
   }
       
-  
-  switch($action){
-      case 'About' :
-          include '../view/ANAbout.php';
-          break;
-      case 'Admin':
-          include '../view/ANAdmin.php';
-          break;
-      case 'AddMusic':
-           addSong();
-           break;
-      case 'DeleteMusic':
-           deleteMusic();
-           break;
-     case 'EditMusic':
-           editSong();
-           break;
-      case 'EmailSend':
-          include '../view/ANEmailsend.php';
-          break;
-      case 'FileManagement':
-          include '../view/ANFileUpload.php';
-          break;
-      case 'Home':
-          include '../view/index.php';
-          break;
-      case 'IndividualRecord':
-          displayOneRecord();
-          break;
-      case 'Ideas':
-          include '../view/ANIdeas.php';
-          break;
-      case 'ListMusic':
-           listMusic();
-           break;
-      case 'Music':
-          include '../view/ANMusic.php';
-          break;
-      case 'Newsletter':
-          include '../view/ANNewsletter.php';
-          break;
-      case 'ProcessAddEdit':
-          processAddEdit();
-          break;
-      case 'ProcessRegisterMember':
-      processRegisterMember();
-          //include '../view/ANProcessRegisterMember.php';
-          break;
-      case 'SearchMusic':
-           //include '../view/searchMusic.php';
-      searchMusic();
-           break;
-      case 'SignIn':
-          include '../view/ANSignup.php';
-		      break;
-      case 'UnderConstruction':
-          include '../view/ANUnderConstruction.php';
-          break;
-      case 'Checksheet':
-          include '../view/checksheet.php';
-          break;
-      case 'navinclude':
-          include '../view/navinclude.php';
-          break;
-      case 'ProcessFileUpload':
-          include '../view/processFileUpload.php';
-           break;
-      default:
-          include('../view/index.php');
+  //THIS IS THE SECURITY CHECK
+    if ( !userIsAuthorized($action)) {
+        if(!loggedIn()) {
+            header("Location:../security/index.php?action=SecurityLogin&RequestedPage=" . urlencode($_SERVER['REQUEST_URI']));
+        } else {
+            include('../security/not_authorized.html');
+        }
+    } else {
+      switch($action){
+          case 'About' :
+              include '../view/ANAbout.php';
+              break;
+          case 'Admin':
+              include '../view/ANAdmin.php';
+              break;
+          case 'AddMusic':
+               addSong();
+               break;
+          case 'DeleteMusic':
+               deleteMusic();
+               break;
+         case 'EditMusic':
+               editSong();
+               break;
+          case 'EmailSend':
+              include '../view/ANEmailsend.php';
+              break;
+          case 'FileManagement':
+              include '../view/ANFileUpload.php';
+              break;
+          case 'Home':
+              include '../view/index.php';
+              break;
+          case 'IndividualRecord':
+              displayOneRecord();
+              break;
+          case 'Ideas':
+              include '../view/ANIdeas.php';
+              break;
+          case 'ListMusic':
+               listMusic();
+               break;
+          case 'Music':
+              include '../view/ANMusic.php';
+              break;
+          case 'Newsletter':
+              include '../view/ANNewsletter.php';
+              break;
+          case 'ProcessAddEdit':
+              processAddEdit();
+              break;
+          case 'ProcessRegisterMember':
+          processRegisterMember();
+              //include '../view/ANProcessRegisterMember.php';
+              break;
+          case 'SearchMusic':
+               //include '../view/searchMusic.php';
+          searchMusic();
+               break;
+          case 'SignIn':
+              include '../view/ANSignup.php';
+    		      break;
+          case 'UnderConstruction':
+              include '../view/ANUnderConstruction.php';
+              break;
+          case 'Checksheet':
+              include '../view/checksheet.php';
+              break;
+          case 'navinclude':
+              include '../view/navinclude.php';
+              break;
+          case 'ProcessFileUpload':
+              include '../view/processFileUpload.php';
+               break;
+          default:
+              include('../view/index.php');
+            }
   }
 
 function addSong()

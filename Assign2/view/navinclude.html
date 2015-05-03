@@ -25,16 +25,19 @@
 									<li><a href="../controller/controller.php?action=AddMusic">Add Song</a><li>
 								  </ul>
 							</li>
+							<!-- Basically if you are an admin then u can see this -->
+							<?php if(userIsAuthorized("Admin") && userIsAuthorized("FileManagement") &&userIsAuthorized("EmailSend")) { ?>
 							<!-- <li><a href="../view/ANAdmin.php">ADMIN</a></li> -->
                              <li class="dropdown">
 								  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ADMIN<span class="caret"></span></a>
 								  <ul class="dropdown-menu" role="menu">
-									<li><a href="../controller/controller.php?action=Admin">LOG IN</a></li>
+									<!-- <li><a href="../controller/controller.php?action=Admin">LOG IN</a></li> -->
 									<li><a href="../controller/controller.php?action=FileManagement">FILE MANAGEMENT</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="../controller/controller.php?action=SendEmails">SEND EMAILS</a></li>
+                                    <li><a href="../controller/controller.php?action=EmailSend">SEND EMAILS</a></li>
 								  </ul>
 							</li>
+							<?php } ?>
 							<li><a href="../security/">SECURITY</a></li>
 							<li class="dropdown">
 								  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">HELP <span class="caret"></span></a>
@@ -46,9 +49,15 @@
 								  </ul>
 							</li>
 							<li>
-						    <a class="userLoginImage pull-right" href="../controller/controller.php?action=SignIn">
+							<?php 
+								if (loggedIn()) {  ?>
+				                <a href="../security/index.php?action=SecurityLogOut">Log Out</a>
+		                        <?php } else { 
+				                echo "<a href=\"../security/index.php?action=SecurityLogin&RequestedPage=" . urlencode($_SERVER['REQUEST_URI']) . "\">Log In</a>";
+		                        } ?>
+						    <!-- <a class="userLoginImage pull-right" href="../controller/controller.php?action=SignIn">
 						     <img title="Sign In" width="50" alt="user login image" src="../images/user.png"/>
-						    </a>
+						    </a> -->
 						  </li>
 						  </ul>
 						  

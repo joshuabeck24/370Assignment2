@@ -14,6 +14,7 @@
 </footer>
 <div style="text-align: center; color:black;">
   <?php
+  
         $array = array("ANFileupload.php","ANAbout.php", "ANAdmin.php", "index.php", "ANIdeas.php","ANMusic.php","ANNewsletter.php","ANSignup.php","ANUnderconstruction.php","checksheet.php","navinclude.html","headerinclude.php","footerinclude.php","processFileUpload.php");
         # $filename = 'somefile.txt';
         $filename="";
