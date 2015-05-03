@@ -20,7 +20,13 @@
     } else {
         switch ($action) {
             case 'SecurityLogin':
-                include('login_form.php');
+                 if(!isset($_SERVER["HTTPS"]))
+                 {
+                 	$url = "https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+                 	header("Location: " . $url);
+                 	exit();
+                 }
+                include('login_form.php');//log in will occur in secure mode
                 break;
             case 'SecurityProcessLogin':
                 ProcessLogin();
@@ -84,7 +90,7 @@
 
         if(login($username,$password)){
 			if (isset($_REQUEST["RequestedPage"])) {
-				header("Location:" . $_REQUEST["RequestedPage"]);
+				header("Location: http://" . $_SERVER["HTTP_HOST"] . $_REQUEST["RequestedPage"]);
 			} else {
 				header("Location:../security/index.php");
 			}
